@@ -38,9 +38,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
+  gem 'jasmine-rails'
 end
 
 group :test do
+  gem 'simplecov'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'faker'
