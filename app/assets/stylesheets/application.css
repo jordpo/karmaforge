@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+#location {
+  display: none;
+}
+
+
+#item-search {
+  display: none;
+}
+
+#transaction-display {
+  display: none;
+}
