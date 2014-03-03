@@ -19,7 +19,7 @@ FactoryGirl.lint
 
 RSpec.configure do |config|
  config.include FactoryGirl::Syntax::Methods
- config.include SessionHelpers
+ # config.include SessionHelpers
  config.use_transactional_fixtures = false
  config.order = 'random'
  config.treat_symbols_as_metadata_keys_with_true_values = true
