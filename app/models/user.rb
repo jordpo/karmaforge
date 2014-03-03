@@ -4,7 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   # omniauth helper methods
+  # Relationships
+  has_many :items
+  has_many :transactions
+  belongs_to :city
+
+   # Omniauth helper methods
    def self.from_omniauth(auth)
      where(auth.slice(:provider, :uid)).first_or_create do |user|
        user.provider = auth.provider
