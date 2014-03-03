@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '4.0.3'
 
 gem 'devise'
@@ -56,3 +57,5 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+ruby '2.0.0'
