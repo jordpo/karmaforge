@@ -1,7 +1,49 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
     },
     "timestamp": 1393865468
+=======
+      "/Users/KarenMak/Code/Project2/Karmaforge/app/models/item.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/KarenMak/Code/Project2/Karmaforge/spec/models/location_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/KarenMak/Code/Project2/Karmaforge/app/models/location.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1393865313
+>>>>>>> 38900416d6ef943af8e0de210647650dfd23388d
   }
 }

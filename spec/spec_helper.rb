@@ -20,8 +20,12 @@ FactoryGirl.lint
 
 RSpec.configure do |config|
  config.include FactoryGirl::Syntax::Methods
+<<<<<<< HEAD
  config.include SessionHelpers
 
+=======
+ # config.include SessionHelpers
+>>>>>>> 38900416d6ef943af8e0de210647650dfd23388d
  config.use_transactional_fixtures = false
  config.infer_base_class_for_anonymous_controllers = false
 
