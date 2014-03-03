@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'pg'
 gem 'validate_url'
 
