@@ -8,6 +8,6 @@ describe User do
 
   describe "associations" do
     it { should have_many(:items).through(:transactions) }
-    it { should belong_to(:city) }
+    it { should belong_to(:location) }
   end
 end
