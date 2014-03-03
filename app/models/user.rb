@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Relationships
-  has_many :items
+  has_many :items, through: :transactions
   has_many :transactions
-  belongs_to :city
+  belongs_to :location
 
    # Omniauth helper methods
    def self.from_omniauth(auth)
