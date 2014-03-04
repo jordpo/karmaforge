@@ -62,6 +62,8 @@ KarmaForge.saveItem = function (event) {
   }).done(function (data) {
     item.id = data.id;
     $('#item-search').hide();
+    $('#transaction-display').show();
+    $('#transaction-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
   });
 }
 
@@ -87,7 +89,8 @@ KarmaForge.saveTransaction = function (event) {
 // Bind all Event Handlers
 KarmaForge.init = function () {
   $('#enter').click(function(){
-    $('#location').toggle();
+    $('#location').show();
+    $(this).hide();
   });
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
