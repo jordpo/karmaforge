@@ -8,8 +8,7 @@ var KarmaForge = KarmaForge || {};
 
     var $form =$(event.target),
     $city = $form.find("input[name='city']"),
-    $state = $form.find("input[name='state']"),
-    KarmaForge.action = $form.attr('action');
+    $state = $form.find("input[name='state']");
 
     event.preventDefault();
 
