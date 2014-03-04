@@ -25,7 +25,7 @@ KarmaForge.saveLocation = function (event) {
     location.id = data.id;
     $('#location').hide();
     $('#item-search').show();
-  });
+    });
 };
 
 
