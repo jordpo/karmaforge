@@ -10,7 +10,7 @@ KarmaForge.saveLocation = function (event) {
     location;
   event.preventDefault();
 
-  this.currentLocation = new this.Location($city.val(), $state.val());
+  this.currentLocation = new this.Location($city.val().toUpperCase(), $state.val().toUpperCase());
   location = this.currentLocation;
 
   if($city.val() === "" || $state.val() === "") {
@@ -119,3 +119,5 @@ KarmaForge.ajaxSetup = function () {
     }
   });
 };
+
+
