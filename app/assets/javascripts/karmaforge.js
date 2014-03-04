@@ -13,6 +13,12 @@ KarmaForge.saveLocation = function (event) {
   this.currentLocation = new this.Location($city.val(), $state.val());
   location = this.currentLocation;
 
+  if($city.val() === "" || $state.val() === "") {
+      alert("Please ensure you've entered city and state")
+    } else {
+
+
+
   $city.val('');
   $state.val('');
 
@@ -27,7 +33,7 @@ KarmaForge.saveLocation = function (event) {
     $('#item-search').show();
     });
 };
-
+}
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
