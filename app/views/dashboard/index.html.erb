@@ -9,21 +9,20 @@
       <h3 id="welcome-message">Boost your community's <span> Karma-- <span>commit to donate or sell your old stuff.</h3>
   </header>
     <button id="enter">Forge!</button>
-    <div id="location">
-      <%= form_for @location do |f| %>
-      <%= f.text_field :city, placeholder: "Enter your city" %>
-      <%= f.text_field :state, placeholder: "Enter your state" %>
-      <%= f.submit "Next" %>
-      <% end %>
-    </div>
+
+      <div id="location">
+        <%= form_for @location do |f| %>
+        <%= f.text_field :city, placeholder: "Enter your city" %>
+        <%= f.text_field :state, placeholder: "Enter your state" %>
+        <%= f.submit "Next" %>
+        <% end %>
+      </div>
 
      <div id="item-search">
-
-     <%= form_for @item do |f| %>
-     <%= f.text_field :item, placeholder: "Enter item description" %>
-     <%= f.submit "Next" %>
-     <% end %>
-
+       <%= form_for @item do |f| %>
+       <%= f.text_field :item, placeholder: "Enter item description" %>
+       <%= f.submit "Next" %>
+       <% end %>
     </div>
 
     <div id="transaction-display">
