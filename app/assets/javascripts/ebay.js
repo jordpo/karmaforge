@@ -60,7 +60,11 @@ KarmaForge.ebay.filterItems = [
     {"name":"SoldItemsOnly",
      "value": "true",
      "paramName":"",
-     "paramValue":""}
+     "paramValue":""},
+   {"name":"ListingType",
+    "value": "Auction",
+    "paramName":"",
+    "paramValue":""}
   ];
 
 KarmaForge.ebay.buildURLArray = function () {

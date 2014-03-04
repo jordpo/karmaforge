@@ -11,9 +11,9 @@ KarmaForge.Item.prototype.ebayPrice = function () {
 };
 
 KarmaForge.Item.prototype.interestLevel = function () {
-  if ( this.bid < 2 ) {
+  if ( this.bid < 5 ) {
     return 'Low';
-  } else if ( this.bid < 7 ) {
+  } else if ( this.bid < 10 ) {
     return 'Medium';
   } else {
     return 'High';
