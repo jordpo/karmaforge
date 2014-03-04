@@ -62,6 +62,7 @@ KarmaForge.saveItem = function (event) {
   }).done(function (data) {
     item.id = data.id;
     $('#item-search').hide();
+    $('#transaction-display').show()
   });
 }
 
@@ -72,8 +73,9 @@ KarmaForge.saveTransaction = function (event) {
     type: 'POST',
     url: '/transactions',
     data: { transaction : {
-      item_id: KarmaForge.currentItem.id,
-      location_id: KarmaForge.currentLocation.id
+      item_id: this.currentTransaction.item_id,
+      location_id: this.currentTransaction.location_id,
+      karma_point: this.currentTransaction.karma_point
       }
     }
   }).done(function (data){
