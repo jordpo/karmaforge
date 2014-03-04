@@ -5,7 +5,15 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.create!(transaction_params)
+    @transaction = Transaction.new(transaction_params)
+    if user_signed_in?
+      @transaction.assign_attributes(user: current_user)
+    end
+
+    if @transaction.save && !user_signed_in?
+      session[:current_transaction] = @transaction.id
+    end
+
     render json: @transaction
   end
 
