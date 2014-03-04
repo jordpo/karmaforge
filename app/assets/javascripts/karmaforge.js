@@ -17,7 +17,6 @@ KarmaForge.saveLocation = function (event) {
     $('#error-message').prepend("Please enter your city and state.")
     } else {
 
-<<<<<<< HEAD
       $('#error-message').hide();
 
       $city.val('');
@@ -35,7 +34,7 @@ KarmaForge.saveLocation = function (event) {
       });
     };
   }
-=======
+
     $city.val('');
     $state.val('');
 
@@ -51,7 +50,6 @@ KarmaForge.saveLocation = function (event) {
       });
     };
 }
->>>>>>> c9fb445f2d6a8a2b5b04b106df02325b58ef33d7
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
@@ -91,6 +89,7 @@ KarmaForge.saveItem = function (event) {
   });
 }
 
+///// Begin: Transaction Event Handlers //////
 KarmaForge.saveTransaction = function (event) {
   this.currentTransaction = new KarmaForge.Transaction(KarmaForge.currentItem.id, KarmaForge.currentLocation.id);
 
