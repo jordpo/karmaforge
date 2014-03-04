@@ -35,21 +35,6 @@ KarmaForge.saveLocation = function (event) {
     };
   }
 
-    $city.val('');
-    $state.val('');
-
-    $.ajax({
-      type: "POST",
-      url: "/locations",
-      data: {location: {city: location.city, state: location.state}},
-      dataType: 'json'
-    }).done(function (data) {
-      location.id = data.id;
-      $('#location').hide();
-      $('#item-search').show();
-      });
-    };
-}
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
