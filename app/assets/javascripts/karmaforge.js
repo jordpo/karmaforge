@@ -80,7 +80,7 @@ KarmaForge.saveTransaction = function (event) {
       }
     }
   }).done(function (data){
-      KarmaForge.Transaction.render();
+      KarmaForge.currentTransaction.render();
   });
 }
 ///// End: Item Event Handlers //////
