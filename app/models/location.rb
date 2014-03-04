@@ -17,4 +17,10 @@ class Location < ActiveRecord::Base
   validates :city, uniqueness: {scope: :state}, presence: true
   validates :state, presence: true
 
+
+  def add_points(transaction)
+    new_total = total_points + transaction.karma_point
+    update_attributes(total_points: new_total)
+  end
+
 end
