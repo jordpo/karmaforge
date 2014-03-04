@@ -14,10 +14,3 @@
 //= require jquery_ujs
 
 //= require_tree .
-
-// Testing eBay API
-// $(function(){
-//   KarmaForge.ebay.call('flannel shirts', 10);
-
-//   KarmaForge.ebay.call('harry potter', 10);
-// });

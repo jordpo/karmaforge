@@ -1,2 +1,34 @@
-<h1>Hi Karen!  Hi Jordan!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KarmaForge</title>
+</head>
+<body>
+  <header>
+    <h1 id="title">KarmaForge</h1>
+      <h3 id="welcome-message">Welcome Message...</h3>
+  </header>
+    <button id="enter">Forge!</button>
+    <div id="location">
+      <form id="location-form" action="/locations/create">
+        <input type="text" name="city" placeholder="Enter your city">
+        <input type="text" name="state" placeholder="Enter your state">
+        <input type="submit" value="Next">
+      </form>
+    </div>
+     <div id="item-search">
+      <form id="item-search-form" action="/items/create">
+        <input type="text" name="name" placeholder="Enter item description">
+        <input type="submit" value="Next">
+      </form>
+    </div>
+    <div id="transaction-display">
+      <button id="donate">Donate</button>
+
+      <form action="http://www.ebay.com" method="get">
+        <button id="sell">Sell</button>
+      </form>
+    </div>
+</body>
+</html>
 

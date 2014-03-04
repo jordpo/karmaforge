@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id            :integer          not null, primary key
+#  name          :text
+#  average_price :float
+#  average_bid   :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
 require 'spec_helper'
 
 describe Item do
