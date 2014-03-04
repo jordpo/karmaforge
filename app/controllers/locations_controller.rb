@@ -1,10 +1,14 @@
 class LocationsController < ApplicationController
 
   def create
-    @location = Location.new(location_params)
-    @location.save
-
-    render json: @location
+    @location = Location.where(location_params).first
+    if @location
+      render json: @location
+    else
+      @location = Location.new(location_params)
+      @location.save
+      render json: @location
+    end
   end
 
   private
