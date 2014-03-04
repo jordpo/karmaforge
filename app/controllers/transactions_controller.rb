@@ -10,8 +10,12 @@ class TransactionsController < ApplicationController
       @transaction.assign_attributes(user: current_user)
     end
 
-    if @transaction.save && !user_signed_in?
-      session[:current_transaction] = @transaction.id
+    if @transaction.save
+      if !user_signed_in?
+        session[:current_transaction] = @transaction.id
+      else
+        current_user.add_points(@transaction)
+      end
     end
 
     render json: @transaction

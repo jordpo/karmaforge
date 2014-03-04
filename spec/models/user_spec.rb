@@ -18,18 +18,31 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  location_id            :integer
+#  total_points           :integer          default(0)
 #
 
 require 'spec_helper'
 
 describe User do
   it 'has a valid factory' do
-    user = create(:user)
+    user = FactoryGirl.create(:user)
     expect(user).to be_valid
   end
 
   describe "associations" do
     it { should have_many(:items).through(:transactions) }
     it { should belong_to(:location) }
+  end
+
+  describe '#add_points' do
+    user = FactoryGirl.create(:user)
+    transaction = FactoryGirl.create(:transaction, user: user)
+    transaction2 = FactoryGirl.create(:transaction, user: user)
+    sum = transaction.karma_point + transaction2.karma_point
+    user.add_points(transaction)
+    user.add_points(transaction2)
+    it 'updates the total_points of user by adding transaction.karma_points' do
+      expect(user.total_points).to eq(sum)
+    end
   end
 end
