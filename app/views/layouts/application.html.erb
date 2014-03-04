@@ -17,6 +17,10 @@
  <!-- User NAV -->
  <nav>
   <% if user_signed_in? %>
+    <p>
+      Signed in as <%= current_user.email %>
+      with Total Karma Points: <%= current_user.total_points %>
+    </p>
     <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
   <% else %>
     <%=  link_to 'Sign In', new_user_session_path %>
