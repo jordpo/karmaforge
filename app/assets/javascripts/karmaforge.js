@@ -17,6 +17,7 @@ KarmaForge.saveLocation = function (event) {
     $('#error-message').prepend("Please enter your city and state.")
     } else {
 
+<<<<<<< HEAD
       $('#error-message').hide();
 
       $city.val('');
@@ -34,6 +35,23 @@ KarmaForge.saveLocation = function (event) {
       });
     };
   }
+=======
+    $city.val('');
+    $state.val('');
+
+    $.ajax({
+      type: "POST",
+      url: "/locations",
+      data: {location: {city: location.city, state: location.state}},
+      dataType: 'json'
+    }).done(function (data) {
+      location.id = data.id;
+      $('#location').hide();
+      $('#item-search').show();
+      });
+    };
+}
+>>>>>>> c9fb445f2d6a8a2b5b04b106df02325b58ef33d7
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
