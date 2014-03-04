@@ -13,21 +13,25 @@ KarmaForge.saveLocation = function (event) {
   this.currentLocation = new this.Location($city.val(), $state.val());
   location = this.currentLocation;
 
-  $city.val('');
-  $state.val('');
+  if($city.val() === "" || $state.val() === "") {
+      alert("Please ensure you've entered city and state")
+    } else {
 
-  $.ajax({
-    type: "POST",
-    url: "/locations",
-    data: {location: {city: location.city, state: location.state}},
-    dataType: 'json'
-  }).done(function (data) {
-    location.id = data.id;
-    $('#location').hide();
-    $('#item-search').show();
-  });
-};
+    $city.val('');
+    $state.val('');
 
+    $.ajax({
+      type: "POST",
+      url: "/locations",
+      data: {location: {city: location.city, state: location.state}},
+      dataType: 'json'
+    }).done(function (data) {
+      location.id = data.id;
+      $('#location').hide();
+      $('#item-search').show();
+      });
+    };
+}
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
@@ -62,6 +66,27 @@ KarmaForge.saveItem = function (event) {
   }).done(function (data) {
     item.id = data.id;
     $('#item-search').hide();
+    $('#ebay-display').show();
+    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
+  });
+}
+
+KarmaForge.saveTransaction = function (event) {
+  this.currentTransaction = new KarmaForge.Transaction(KarmaForge.currentItem.id, KarmaForge.currentLocation.id);
+
+  $.ajax({
+    type: 'POST',
+    url: '/transactions',
+    data: { transaction : {
+      item_id: this.currentTransaction.item_id,
+      location_id: this.currentTransaction.location_id,
+      karma_point: this.currentTransaction.karma_point
+      }
+    }
+  }).done(function (data){
+      $('#ebay-display').hide();
+      $('#transaction-display').show();
+      KarmaForge.currentTransaction.render();
   });
 }
 ///// End: Item Event Handlers //////
@@ -71,12 +96,14 @@ KarmaForge.saveItem = function (event) {
 // Bind all Event Handlers
 KarmaForge.init = function () {
   $('#enter').click(function(){
-    $('#location').toggle();
+    $('#location').show();
+    $(this).hide();
   });
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
   $('#item-search form').submit(KarmaForge.createItem.bind(this));
   $('#item_save').click(KarmaForge.saveItem.bind(this));
+  $('#donate').click(KarmaForge.saveTransaction.bind(this));
 };
 
 // Make sure to have our CSRF token on all post requests
