@@ -18,6 +18,9 @@ class TransactionsController < ApplicationController
       end
     end
 
+    @location = Location.find(@transaction.location_id)
+    @location.add_points(@transaction)
+
     render json: @transaction
   end
 
