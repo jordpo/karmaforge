@@ -21,6 +21,8 @@ KarmaForge.ebay.call = function (item, count) {
   $('body').append($scriptEl);
 };
 
+KarmaForge.ebay.result = [];
+
 KarmaForge.ebay.results = function(data) {
   var items = data.findCompletedItemsResponse[0].searchResult[0].item || [],
     bid_count = 0,
@@ -42,10 +44,8 @@ KarmaForge.ebay.results = function(data) {
     selling_price = Number(items[i].sellingStatus[0].currentPrice[0].__value__) + selling_price;
   }
   // Average sums
-  result[0] = selling_price / length;
-  result[1] = parseInt(bid_count / length);
-
-  console.log(result);
+  this.result[0] = selling_price / length;
+  this.result[1] = parseInt(bid_count / length);
 }
 
 KarmaForge.ebay.filterItems = [
