@@ -10,8 +10,11 @@ KarmaForge.createItem = function (event) {
     this.currentItem = new KarmaForge.Item($item.val());
 
   event.preventDefault();
+  $('#item-search').prepend($('<p>', {html: $item.val() }));
 
+  // Remove input val and hide form
   $item.val('');
+  $(event.target).hide();
 }
 // Save item in DB and add item.id to JS object
 KarmaForge.saveItem = function (event) {
@@ -45,8 +48,8 @@ KarmaForge.init = function () {
     $('#location').toggle();
   });
 
-  $('#item-search form').submit(KarmaForge.saveItem.bind(this));
-  $('#item_ebay').click(KarmaForge.createItem.bind(this));
+  $('#item-search form').submit(KarmaForge.createItem.bind(this));
+  $('#item_save').click(KarmaForge.saveItem.bind(this));
 };
 
 // Make sure to have our CSRF token on all post requests
