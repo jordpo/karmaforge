@@ -1,6 +1,32 @@
 var KarmaForge = KarmaForge || {};
 
 
+///// Begin: Location Event Handlers //////
+// Set location of current visitor and save to database
+
+KarmaForge.saveLocation = function (event) {
+  var $city = $("#location_city"),
+    $state = $("#location_state"),
+    location;
+  event.preventDefault();
+
+  this.currentLocation = new this.Location($city.val(), $state.val());
+  location = this.currentLocation;
+
+  $city.val('');
+  $state.val('');
+
+  $.ajax({
+    type: "POST",
+    url: "/locations",
+    data: {location: {city: location.city, state: location.state}},
+    dataType: 'json'
+  }).done(function (data) {
+    location.id = data.id;
+    $('#location').hide();
+    $('#item-search').show();
+  });
+};
 
 
 ///// Begin: Item Event Handlers //////
@@ -48,6 +74,7 @@ KarmaForge.init = function () {
     $('#location').toggle();
   });
 
+  $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
   $('#item-search form').submit(KarmaForge.createItem.bind(this));
   $('#item_save').click(KarmaForge.saveItem.bind(this));
 };
