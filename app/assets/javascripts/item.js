@@ -9,3 +9,13 @@ KarmaForge.Item.prototype.ebayPrice = function () {
   this.price = KarmaForge.ebay.result[0];
   this.bid= KarmaForge.ebay.result[1];
 };
+
+KarmaForge.Item.prototype.interestLevel = function () {
+  if ( this.bid < 2 ) {
+    return 'Low';
+  } else if ( this.bid < 7 ) {
+    return 'Medium';
+  } else {
+    return 'High';
+  }
+};

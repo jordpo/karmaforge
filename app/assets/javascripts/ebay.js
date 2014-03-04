@@ -44,7 +44,7 @@ KarmaForge.ebay.results = function(data) {
     selling_price = Number(items[i].sellingStatus[0].currentPrice[0].__value__) + selling_price;
   }
   // Average sums
-  this.result[0] = selling_price / length;
+  this.result[0] = (selling_price / length).toFixed(2);
   this.result[1] = parseInt(bid_count / length);
 }
 
