@@ -14,26 +14,26 @@ KarmaForge.saveLocation = function (event) {
   location = this.currentLocation;
 
   if($city.val() === "" || $state.val() === "") {
-      alert("Please ensure you've entered city and state")
+    $('#error-message').prepend("Please enter your city and state.")
     } else {
 
+      $('#error-message').hide();
 
+      $city.val('');
+      $state.val('');
 
-  $city.val('');
-  $state.val('');
-
-  $.ajax({
-    type: "POST",
-    url: "/locations",
-    data: {location: {city: location.city, state: location.state}},
-    dataType: 'json'
-  }).done(function (data) {
-    location.id = data.id;
-    $('#location').hide();
-    $('#item-search').show();
-    });
-};
-}
+      $.ajax({
+        type: "POST",
+        url: "/locations",
+        data: {location: {city: location.city, state: location.state}},
+        dataType: 'json'
+      }).done(function (data) {
+        location.id = data.id;
+        $('#location').hide();
+        $('#item-search').show();
+      });
+    };
+  }
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
