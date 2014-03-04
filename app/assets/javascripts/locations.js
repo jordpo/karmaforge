@@ -6,9 +6,9 @@ var KarmaForge = KarmaForge || {};
       this.state = state;
     }
 
-    KarmaForge.Location.prototype.save = function(event) {
+    // KarmaForge.Location.prototype.save = function(event) {
 
-    }
+    // }
 
     var $form =$(event.target),
     $city = $form.find("input[name='city']"),
@@ -19,7 +19,12 @@ var KarmaForge = KarmaForge || {};
 
     $.ajax({
       type: "POST",
-      url: "/"
-      data: {location}
+      url: "/locations/create"
+      data: {location: {city: $city.val(), state: $state.val()}},
+      dataType: 'json'
 
-    })
+      }
+
+    }); // end ajax
+
+
