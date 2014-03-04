@@ -18,6 +18,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  location_id            :integer
+#  total_points           :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -30,6 +31,11 @@ class User < ActiveRecord::Base
   has_many :items, through: :transactions
   has_many :transactions
   belongs_to :location
+
+  def add_points(transaction)
+    new_total = total_points + transaction.karma_point
+    update_attributes(total_points: new_total)
+  end
 
    # Omniauth helper methods
    def self.from_omniauth(auth)

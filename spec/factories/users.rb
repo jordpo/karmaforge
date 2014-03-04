@@ -18,6 +18,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  location_id            :integer
+#  total_points           :integer          default(0)
 #
 
 FactoryGirl.define do
