@@ -10,25 +10,27 @@
   </header>
     <button id="enter">Forge!</button>
     <div id="location">
-      <form id="location-form" action="/locations/create">
-        <input type="text" name="city" placeholder="Enter your city">
-        <input type="text" name="state" placeholder="Enter your state">
-        <input type="submit" value="Next">
-      </form>
+      <%= form_for @location do |f| %>
+      <%= f.text_field :city, placeholder: "Enter your city" %>
+      <%= f.text_field :state, placeholder: "Enter your state" %>
+      <%= f.submit "Next" %>
+      <% end %>
     </div>
+
      <div id="item-search">
-      <form id="item-search-form" action="/items/create">
-        <input type="text" name="name" placeholder="Enter item description">
-        <input type="submit" value="Next">
-      </form>
+     <%= form_for @item do |f| %>
+     <%= f.text_field :item, placeholder: "Enter item description" %>
+     <%= f.submit "Next" %>
+     <% end %>
     </div>
+
     <div id="transaction-display">
       <button id="donate">Donate</button>
-
       <form action="http://www.ebay.com" method="get">
         <button id="sell">Sell</button>
       </form>
     </div>
+
 </body>
 </html>
 
