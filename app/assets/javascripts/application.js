@@ -14,3 +14,10 @@
 //= require jquery_ujs
 
 //= require_tree .
+
+
+// Initialize app javascripts
+$(function () {
+  KarmaForge.ajaxSetup();
+  KarmaForge.init();
+});

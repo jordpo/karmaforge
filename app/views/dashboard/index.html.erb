@@ -19,10 +19,12 @@
 
      <div id="item-search">
 
-     <%= form_for @item do |f| %>
-     <%= f.text_field :item, placeholder: "Enter item description" %>
+     <%= form_for :item do |f| %>
+     <%= f.text_field :name, placeholder: "Enter item description" %>
      <%= f.submit "Next" %>
      <% end %>
+
+     <button id="item_ebay">Fetch eBay</button>
 
     </div>
 
