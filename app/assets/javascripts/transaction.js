@@ -1,20 +1,15 @@
 var KarmaForge = KarmaForge || {}
 
-KarmaForge.Transaction = function(location_id, user_id) {
-  // this.item_id = item_id;
-  this.location_id = location_id;
-  this.user_id = user_id;
-  // this.karma_point = karma_point;
+KarmaForge.Transaction = function(user_id) {
+  this.user_id = KarmaForge.currentUser.id;
 }
 
-// KarmaForge.Transaction.prototype.render = function() {
-//
-// new Location = this.location
-//
-//   // set innerhtml
-// }
+KarmaForge.Transaction.prototype.render = function(KarmaForge.currentItem, KarmaForge.currentLocation) {
+  var this.item_id = KarmaForge.currentItem.id,
+      this.location_id = KarmaForge.currentLocation.id,
+      this.karma_point = KarmaForge.currentItem.bid * KarmaForge.currentItem.price * Math.random(),
+      transactionDiv = document.getElementById('transaction-display');
 
-// KarmaForge.Transaction.prototype.calculate_karma = function(item) {
-//   // var this.item_id = item_id
-//   // var this.karma_point = item.bid * item.price
-// }
+  transactionDiv.innerhtml = "<p>You have forged" + this.karma_point + " karma points for " + this.location.city + ", " + this.location.state " !</p>";
+}
+
