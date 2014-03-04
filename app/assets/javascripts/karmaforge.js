@@ -62,8 +62,8 @@ KarmaForge.saveItem = function (event) {
   }).done(function (data) {
     item.id = data.id;
     $('#item-search').hide();
-    $('#transaction-display').show();
-    $('#transaction-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
+    $('#ebay-display').show();
+    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
   });
 }
 
@@ -80,6 +80,8 @@ KarmaForge.saveTransaction = function (event) {
       }
     }
   }).done(function (data){
+      $('#ebay-display').hide();
+      $('#transaction-display').show();
       KarmaForge.currentTransaction.render();
   });
 }
