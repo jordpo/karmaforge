@@ -91,7 +91,9 @@ KarmaForge.saveTransaction = function (event) {
       $('#ebay-display').hide();
       $('#transaction-display').show();
       KarmaForge.currentLocation.total_points = data.location.total_points;
-      $('#user_pts').html(data.user.total_points);
+      if (data.user) {
+        $('#user_pts').html(data.user.total_points);
+      }
       KarmaForge.currentTransaction.render();
   });
 }
