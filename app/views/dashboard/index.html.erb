@@ -15,9 +15,9 @@
 
       <div id="location">
         <%= form_for :location do |f| %>
-        <%= f.text_field :city, placeholder: "City name" %>
-        <%= f.text_field :state, placeholder: "State abbreviation" %>
-        <%= f.submit "Next" %>
+          <%= f.text_field :city, placeholder: "City name", value: @location.city %>
+          <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
+          <%= f.submit "Next" %>
         <% end %>
       </div>
 

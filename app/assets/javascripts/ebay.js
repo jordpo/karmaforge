@@ -25,8 +25,10 @@ KarmaForge.ebay.result = [];
 
 KarmaForge.ebay.results = function(data) {
   var items = data.findCompletedItemsResponse[0].searchResult[0].item || [],
-    bid_count = 0,
-    selling_price = 0,
+    bid_total = 0,
+    bid,
+    price_total = 0,
+    price,
     length = items.length,
     i = 0,
     result = [];
@@ -37,15 +39,23 @@ KarmaForge.ebay.results = function(data) {
   // Iterate through items to get sums
   for (; i < length; i++ ) {
     if ( items[i].sellingStatus[0].bidCount ) {
-      bid_count = Number(items[i].sellingStatus[0].bidCount[0]) + bid_count;
+      bid = Number(items[i].sellingStatus[0].bidCount[0]);
+      if ( isNaN(bid) ) {
+        bid = 0;
+      }
     } else {
-      bid_count = bid_count + 0;
+      bid = 0;
     }
-    selling_price = Number(items[i].sellingStatus[0].currentPrice[0].__value__) + selling_price;
+    bid_total = bid + bid_total;
+    price = Number(items[i].sellingStatus[0].currentPrice[0].__value__);
+    if ( isNaN(price) ) {
+      price = 0;
+    }
+    price_total = price + price_total;
   }
   // Average sums
-  this.result[0] = (selling_price / length).toFixed(2);
-  this.result[1] = parseInt(bid_count / length);
+  this.result[0] = parseFloat((price_total / length).toFixed(2));
+  this.result[1] = parseInt(bid_total / length);
 }
 
 KarmaForge.ebay.filterItems = [
