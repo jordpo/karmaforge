@@ -64,6 +64,22 @@ KarmaForge.saveItem = function (event) {
     $('#item-search').hide();
   });
 }
+
+KarmaForge.saveTransaction = function (event) {
+  this.currentTransaction = new KarmaForge.Transaction(KarmaForge.currentItem.id, KarmaForge.currentLocation.id);
+
+  $.ajax({
+    type: 'POST',
+    url: '/transactions',
+    data: { transaction : {
+      item_id: KarmaForge.currentItem.id,
+      location_id: KarmaForge.currentLocation.id
+      }
+    }
+  }).done(function (data){
+      $('#transaction-display').show()
+  });
+}
 ///// End: Item Event Handlers //////
 
 
@@ -77,6 +93,7 @@ KarmaForge.init = function () {
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
   $('#item-search form').submit(KarmaForge.createItem.bind(this));
   $('#item_save').click(KarmaForge.saveItem.bind(this));
+  $('#donate').click(KarmaForge.saveTransaction.bind(this));
 };
 
 // Make sure to have our CSRF token on all post requests

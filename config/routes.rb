@@ -4,5 +4,5 @@ KarmaForge::Application.routes.draw do
   root to: 'dashboard#index'
   resources :locations, only: [:create]
   resources :items, only: [:create]
-  resources :transaction, only: [:index, :create]
+  resources :transactions, only: [:index, :create]
 end
