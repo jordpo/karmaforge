@@ -44,6 +44,7 @@ KarmaForge.createItem = function (event) {
 
   event.preventDefault();
   $('#item-search').prepend($('<p>', {html: $item.val() }));
+  $('#item_save_button').show();
 
   // Remove input val and hide form
   $item.val('');
@@ -69,6 +70,7 @@ KarmaForge.saveItem = function (event) {
   }).done(function (data) {
     item.id = data.id;
     $('#item-search').hide();
+    $('#item_save_button').hide();
     $('#ebay-display').show();
     $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
   });
@@ -90,6 +92,7 @@ KarmaForge.saveTransaction = function (event) {
   }).done(function (data){
       $('#ebay-display').hide();
       $('#transaction-display').show();
+      $('#again').show()
       KarmaForge.currentLocation.total_points = data.location.total_points;
       if (data.user) {
         $('#user_pts').html(data.user.total_points);
@@ -106,6 +109,13 @@ KarmaForge.init = function () {
   $('#enter').click(function(){
     $('#location').show();
     $(this).hide();
+    $('.notice, .alert').html('');
+  });
+
+  $('#forge-again').click(function() {
+    $('#transaction-display').hide();
+    $('#again').hide();
+    $('#location').show();
   });
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));

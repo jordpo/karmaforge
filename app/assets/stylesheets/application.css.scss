@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+#location {
+  display: none;
+}
+
+#item-search {
+  display: none;
+}
+
+#item_save_button {
+  text-align: center;
+  vertical-align: center;
+  display: none;
+}
+
+#transaction-display {
+  display: none;
+}
+
+#ebay-display {
+  display: none;
+}
+
+.notice-alert span{
+  color: white;
+}
+
+.login-nav span{
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+#title {
+  text-align: center;
+}
+
+#tagline {
+  text-align:center;
+}
+
+#karma {
+  font-size: 1.25em;
+  color: tomato;
+}
+
+#intro {
+  text-align: center;
+  vertical-align: center;
+}
+
+#enter {
+  margin-top: 25px;
+  transform:scale(2.0,2.0);
+  -ms-transform:scale(2.0,2.0); /* IE 9 */
+  -moz-transform:scale(2.0,2.0); /* Firefox */
+  -webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
+  -o-transform:scale(2.0,2.0);
+}
+
+#error-message {
+  text-align: center;
+  vertical-align: center;
+}
+
+#location {
+  text-align: center;
+  vertical-align: center;
+  font-size: 2em;
+}
+
+#item-search {
+  text-align: center;
+  vertical-align: center;
+  font-size: 2em;
+}
+
+#ebay-display {
+  text-align: center;
+  vertical-align: center;
+  font-size: 2em;
+}
+
+form {
+  display: inline;
+  margin: 50px;
+}
+
+form button {
+  transform:scale(2.0,2.0);
+  -ms-transform:scale(2.0,2.0); /* IE 9 */
+  -moz-transform:scale(2.0,2.0); /* Firefox */
+  -webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
+  -o-transform:scale(2.0,2.0);
+}
+
+#donate {
+  margin: 50px;
+  transform:scale(2.0,2.0);
+  -ms-transform:scale(2.0,2.0); /* IE 9 */
+  -moz-transform:scale(2.0,2.0); /* Firefox */
+  -webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
+  -o-transform:scale(2.0,2.0);
+}
+
+#transaction-display {
+  text-align: center;
+  vertical-align: center;
+  font-size: 3em;
+}
+
+#again{
+  display: none;
+  text-align: center;
+  vertical-align: center;
+  font-size: 2em;
+}
