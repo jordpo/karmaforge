@@ -10,5 +10,5 @@ KarmaForge.Transaction.prototype.render = function(currentItem, currentLocation)
   this.item_id = KarmaForge.currentItem.id,
   this.location_id = KarmaForge.currentLocation.id,
   transactionDiv = document.getElementById('transaction-display');
-  transactionDiv.innerHTML = "You forged " + this.karma_point + " points for " + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + "." + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + " has " + KarmaForge.currentLocation.total_points + " points." ;
+  transactionDiv.innerHTML = "You forged " + this.karma_point + " points for " + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + ". " + '<br>' + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + " has " + KarmaForge.currentLocation.total_points + " points." ;
 }

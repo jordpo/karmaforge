@@ -65,6 +65,7 @@
 }
 
 #enter {
+  margin-top: 25px;
   transform:scale(2.0,2.0);
   -ms-transform:scale(2.0,2.0); /* IE 9 */
   -moz-transform:scale(2.0,2.0); /* Firefox */
@@ -80,11 +81,13 @@
 #location {
   text-align: center;
   vertical-align: center;
+  font-size: 2em;
 }
 
 #item-search {
   text-align: center;
   vertical-align: center;
+  font-size: 2em;
 }
 
 #ebay-display {
@@ -121,3 +124,9 @@ form button {
   font-size: 3em;
 }
 
+#again{
+  display: none;
+  text-align: center;
+  vertical-align: center;
+  font-size: 2em;
+}
