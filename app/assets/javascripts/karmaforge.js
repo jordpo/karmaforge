@@ -121,6 +121,15 @@ KarmaForge.saveTransaction = function (event) {
       KarmaForge.data3.redraw();
   });
 }
+
+//// Reset button for reforge and reset in middle of form fillout
+KarmaForge.reset = function(event) {
+  event.preventDefault();
+  $('#transaction-display').hide();
+  $('#again').hide();
+  $('#item-search').hide();
+  $('#location').show();
+};
 ///// End: Item Event Handlers //////
 
 
@@ -136,11 +145,8 @@ KarmaForge.init = function () {
     $('.notice-alert').html('');
   });
 
-  $('#forge-again').click(function() {
-    $('#transaction-display').hide();
-    $('#again').hide();
-    $('#location').show();
-  });
+  $('#forge-again').click(KarmaForge.reset);
+  $('#reset').click(KarmaForge.reset);
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
   $('#item-search form').submit(KarmaForge.createItem.bind(this));
