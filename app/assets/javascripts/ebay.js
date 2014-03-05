@@ -61,7 +61,8 @@ KarmaForge.ebay.results = function(data) {
 
   console.log(items[0] === undefined );
   // check for an error
-  if ( isNaN(this.result[0]) || isNaN(this.result[1]) ) {
+  if ( isNaN(this.result[0]) || isNaN(this.result[1])
+      || this.result[0] === undefined || this.result[1] === undefined ) {
     this.result[2] = "error";
   }
 }
