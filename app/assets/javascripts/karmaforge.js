@@ -89,6 +89,7 @@ KarmaForge.saveItem = function (event) {
     $('#item_save_button').hide();
     $('#ebay-display').show();
     $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel(), id: 'ebay_el' }));
+    $('#transaction-display p').remove();
   });
 }
 
