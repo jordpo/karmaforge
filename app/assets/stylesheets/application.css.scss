@@ -195,6 +195,15 @@ form button {
   color: orange;
 }
 
+#user_pts_container, #user_pts {
+  color: orange;
+  font-size: 1em;
+}
+#user_pts {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 #global-stats {
   font-family: 'Marvel';
   float: left;

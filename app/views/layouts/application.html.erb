@@ -20,8 +20,8 @@
          <!-- User NAV -->
          <span class="login-nav">
           <% if user_signed_in? %>
-            <span>Signed in as <%= current_user.email %> with Total Karma Points:
-                <span id="user_pts"><%= current_user.total_points %></span>
+            <span>Signed in as <%= current_user.email %> with <span id="user_pts_container">Total Karma Points:
+                <span id="user_pts"><%= current_user.total_points %></span></span>
             </span>
             <span><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></span>
           <% else %>
