@@ -9,6 +9,7 @@ class DashboardController < ApplicationController
       if transaction.save
         session[:current_transaction] = nil
         current_user.add_points(transaction)
+        flash.now[:notice] = "#{transaction.karma_point} karma points saved!"
       end
     end
 

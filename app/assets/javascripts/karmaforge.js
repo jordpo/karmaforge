@@ -106,6 +106,7 @@ KarmaForge.init = function () {
   $('#enter').click(function(){
     $('#location').show();
     $(this).hide();
+    $('.notice, .alert').html('');
   });
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
