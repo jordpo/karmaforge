@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KarmaForge</title>
+</head>
+<body>
+  <div id="intro">
+    <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
+  </div>
+
+  <div id="reset_button"><button id="reset">Reset</button></div>
+
+  <div id="error-message">
+  </div>
+  <div id="location" class="form-inline">
+    <%= form_for :location do |f| %>
+      <%= f.text_field :city, placeholder: "City name", value: @location.city %>
+      <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
+      <%= f.submit "Next", class: "btn btn-info btn-lg" %>
+    <% end %>
+  </div>
+
+  <div id="item-search">
+     <%= form_for :item do |f| %>
+     <%= f.text_field :name, placeholder: "Enter item description" %>
+     <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
+     <% end %>
+    <div id="item_save_button">
+      <button id="item_save" class="btn btn-success btn-lg">Results</button>
+    </div>
+  </div>
+
+
+  <div id="ebay-display">
+    <button id="donate" class="btn btn-danger">Donate and Forge</button>
+    <form id="ebay-button-form" action="http://www.ebay.com" method="get">
+      <button id="sell" class="btn btn-primary">Sell</button>
+    </form>
+  </div>
+
+  <div id="transaction-display">
+  </div>
+  <div id="again">
+    <button id="forge-again" class="btn btn-warning">Forge again</button>
+  </div>
+
+    <div id="global-stats" data="<%= stat_data(@locations) %>">
+      <h2>Top 5 Locations</h2>
+    </div>
+
+</body>
+</html>
+
