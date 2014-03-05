@@ -4,10 +4,15 @@
   <title>KarmaForge</title>
 </head>
 <body>
-  <div id="intro">
-    <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
-  </div>
+  <div class="container">
+    <div id="instructions">
+        <ul id="get-started">
+          <li>Choose your city.</li>
+          <li>Find a thing you no longer need.</li>
+          <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
+        </ul>
 
+<<<<<<< HEAD
   <div id="error-message">
   </div>
   <div id="location" class="form-inline">
@@ -18,19 +23,33 @@
     <% end %>
     <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
   </div>
+=======
+      <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
 
-  <div id="item-search">
-     <%= form_for :item do |f| %>
-     <%= f.text_field :name, placeholder: "Enter item description" %>
-     <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
-     <% end %>
-    <div id="item_save_button">
-      <button id="item_save" class="btn btn-success btn-lg">Results</button>
+      <p>Want to try to sell it? That's cool. Choose sell and you'll go to ebay's sign up page to try your luck!</p>
+>>>>>>> 01f4fdaf91860269fe6b03f99a45813652da8fd7
+
+      <p>Ready?</p>
+      <button id="how-does-it-work">How does it work?</button>
+    </div>
+    <div id="intro">
+      <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
     </div>
     <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
   </div>
 
+    <div id="error-message">
+    </div>
+    <div id="location" class="form-inline">
+      <p>I'm forging karma for: </p>
+      <%= form_for :location do |f| %>
+        <%= f.text_field :city, placeholder: "City name", value: @location.city %>
+        <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
+        <%= f.submit "Next", class: "btn btn-info btn-lg" %>
+      <% end %>
+    </div>
 
+<<<<<<< HEAD
   <div id="ebay-display">
     <button id="donate" class="btn btn-danger">Donate and Forge</button>
     <form id="ebay-button-form" action="http://www.ebay.com" method="get">
@@ -38,6 +57,27 @@
     </form>
     <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
   </div>
+=======
+
+    <div id="item-search">
+       <%= form_for :item do |f| %>
+       <p>What do you have? Describe your item as accurately as possible-- some good search terms include: name, brand, material, year, size or condition.  For example, "Shrek DVD 2001"</p>
+       <%= f.text_field :name, placeholder: "Enter item description" %>
+       <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
+       <% end %>
+      <div id="item_save_button">
+        <button id="item_save" class="btn btn-success btn-lg">Results</button>
+      </div>
+    </div>
+
+    <div id="ebay-display">
+      <p>What does this mean? Here's the average price of the last ten items sold on ebay that match you keywords. And, based on the number of bids on the items, a general idea of the market's interest.</p>
+      <button id="donate" class="btn btn-danger">Donate and Forge</button>
+      <form id="ebay-button-form" action="http://www.ebay.com" method="get">
+        <button id="sell" class="btn btn-primary">Sell</button>
+      </form>
+    </div>
+>>>>>>> 01f4fdaf91860269fe6b03f99a45813652da8fd7
 
   <div id="transaction-display">
   </div>

@@ -64,6 +64,8 @@ KarmaForge.ebay.results = function(data) {
   this.result[0] = parseFloat((price_total / length).toFixed(2));
   this.result[1] = parseInt(bid_total / length);
 
+
+  console.log(items[0] === undefined );
   // check for an error
   if ( isNaN(this.result[0]) || isNaN(this.result[1])
       || this.result[0] === undefined || this.result[1] === undefined ) {
