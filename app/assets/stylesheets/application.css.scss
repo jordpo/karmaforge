@@ -19,10 +19,19 @@
   display: none;
 }
 
-.notice-alert span{
-  color: white;
-  font-family: 'Shadows Into Light';
-  font-size: 1.5em;
+#transaction-display {
+  display: none;
+}
+
+#ebay-display {
+  display: none;
+}
+
+.notice {
+  color: green;
+}
+.alert {
+  color: red;
 }
 
 .login-nav span{
