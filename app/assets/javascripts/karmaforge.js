@@ -19,6 +19,8 @@ KarmaForge.saveLocation = function (event) {
 
       $('#error-message').hide();
 
+
+
       $city.val('');
       $state.val('');
 
@@ -122,6 +124,7 @@ KarmaForge.init = function () {
   $('#item-search form').submit(KarmaForge.createItem.bind(this));
   $('#item_save').click(KarmaForge.saveItem.bind(this));
   $('#donate').click(KarmaForge.saveTransaction.bind(this));
+
 };
 
 // Make sure to have our CSRF token on all post requests
@@ -132,5 +135,3 @@ KarmaForge.ajaxSetup = function () {
     }
   });
 };
-
-
