@@ -19,14 +19,6 @@ KarmaForge.saveLocation = function (event) {
 
       $('#error-message').hide();
 
-<<<<<<< HEAD
-
-
-      $city.val('');
-      $state.val('');
-
-=======
->>>>>>> master
       $.ajax({
         type: "POST",
         url: "/locations",
