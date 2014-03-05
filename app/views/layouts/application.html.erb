@@ -16,16 +16,6 @@
     <div class="navbar navbar-inverse">
       <div class="container-fluid">
         <span id="icon-home"><%= link_to 'KF', root_path %></span>
-        <span class="notice-alert">
-          <!-- Notice and Alerts -->
-          <% if notice.present? %>
-            <span><%= notice %></span>
-          <% end %>
-          <% if alert.present?%>
-            <span><%= alert %></span>
-         <% end%>
-        </span>
-        <span id="icon-home"><%= link_to 'KA', root_path %></span>
         <div class="navbar-header pull-right">
          <!-- User NAV -->
          <span class="login-nav">
