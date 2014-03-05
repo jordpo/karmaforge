@@ -18,6 +18,8 @@ class DashboardController < ApplicationController
     else
       @location = Location.new
     end
+
+    @locations = Location.order(total_points: :desc).limit(5)
   end
 
 end
