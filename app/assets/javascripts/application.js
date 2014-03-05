@@ -20,6 +20,4 @@
 $(function () {
   KarmaForge.ajaxSetup();
   KarmaForge.init();
-
-  console.log($('#global-stats').attr('data'))
 });

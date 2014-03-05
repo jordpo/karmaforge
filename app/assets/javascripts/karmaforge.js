@@ -103,6 +103,7 @@ KarmaForge.saveTransaction = function (event) {
 ////////////////////////////////////////////////
 // Bind all Event Handlers
 KarmaForge.init = function () {
+  console.log(KarmaForge.data3.getData());
   $('#enter').click(function(){
     $('#location').show();
     $(this).hide();
