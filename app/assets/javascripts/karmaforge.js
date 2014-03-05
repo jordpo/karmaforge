@@ -19,11 +19,14 @@ KarmaForge.saveLocation = function (event) {
 
       $('#error-message').hide();
 
+<<<<<<< HEAD
 
 
       $city.val('');
       $state.val('');
 
+=======
+>>>>>>> master
       $.ajax({
         type: "POST",
         url: "/locations",
@@ -33,6 +36,8 @@ KarmaForge.saveLocation = function (event) {
         location.id = data.id;
         $('#location').hide();
         $('#item-search').show();
+        $('#item_name').parent().show();
+        $('#item_el').remove();
       });
     };
   }
@@ -45,8 +50,9 @@ KarmaForge.createItem = function (event) {
     this.currentItem = new KarmaForge.Item($item.val());
 
   event.preventDefault();
-  $('#item-search').prepend($('<p>', {html: $item.val() }));
+  $('#item-search').prepend($('<p>', {html: $item.val(), id: 'item_el' }));
   $('#item_save_button').show();
+  $('#ebay_el').remove();
 
   // Remove input val and hide form
   $item.val('');
@@ -74,7 +80,7 @@ KarmaForge.saveItem = function (event) {
     $('#item-search').hide();
     $('#item_save_button').hide();
     $('#ebay-display').show();
-    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
+    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel(), id: 'ebay_el' }));
   });
 }
 
@@ -100,6 +106,11 @@ KarmaForge.saveTransaction = function (event) {
         $('#user_pts').html(data.user.total_points);
       }
       KarmaForge.currentTransaction.render();
+
+      // Refresh location data for chart
+      $('#global-stats').attr('data', data.location_data);
+      KarmaForge.data3.getLocationData();
+      KarmaForge.data3.redraw();
   });
 }
 ///// End: Item Event Handlers //////
@@ -108,10 +119,13 @@ KarmaForge.saveTransaction = function (event) {
 ////////////////////////////////////////////////
 // Bind all Event Handlers
 KarmaForge.init = function () {
+  // Set location data and draw bar chart
+  KarmaForge.data3.init();
+
   $('#enter').click(function(){
     $('#location').show();
     $(this).hide();
-    $('.notice, .alert').html('');
+    $('.notice-alert').html('');
   });
 
   $('#forge-again').click(function() {

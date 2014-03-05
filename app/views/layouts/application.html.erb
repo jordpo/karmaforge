@@ -13,6 +13,7 @@
   <div class="container">
     <div class="navbar navbar-inverse">
       <div class="container-fluid">
+        <span id="icon-home"><%= link_to 'KA', root_path %></span>
         <span class="notice-alert">
           <!-- Notice and Alerts -->
           <% if notice.present? %>
@@ -38,6 +39,11 @@
         </div>
       </div>
     </div>
+    <div class="jumbotron">
+      <h1 id="title">KarmaForge</h1>
+        <h3 id="tagline">Give your old things a new life and boost your community's <span id="karma"> Karma</span>!</h3>
+    </div>
+
   <%= yield %>
   </div>
 </body>

@@ -4,6 +4,7 @@
   <title>KarmaForge</title>
 </head>
 <body>
+<<<<<<< HEAD
   <header>
     <div class="jumbotron">
       <h1 id="title">KarmaForge</h1>
@@ -51,10 +52,6 @@
       </div>
     </div>
 
-    <!-- <div id="ebay-display-description">
-      <p>What does this mean? Here's the average price of the last ten items sold on ebay that match you keywords. And, based on the number of bids on the items, a general idea of the market's interest.</p>
-    </div> -->
-
     <div id="ebay-display">
       <p>What does this mean? Here's the average price of the last ten items sold on ebay that match you keywords. And, based on the number of bids on the items, a general idea of the market's interest.</p>
       <button id="donate" class="btn btn-danger">Donate and Forge</button>
@@ -63,10 +60,14 @@
       </form>
     </div>
 
-    <div id="transaction-display">
-    </div>
-    <div id="again">
-      <button id="forge-again" class="btn btn-warning">Forge again</button>
+  <div id="transaction-display">
+  </div>
+  <div id="again">
+    <button id="forge-again" class="btn btn-warning">Forge again</button>
+  </div>
+
+    <div id="global-stats" data="<%= stat_data(@locations) %>">
+      <h2>Top 5 Locations</h2>
     </div>
 
 </body>
