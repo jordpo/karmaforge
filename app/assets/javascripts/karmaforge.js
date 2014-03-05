@@ -152,7 +152,7 @@ KarmaForge.init = function () {
 
 
   $('#how-does-it-work').click(function(){
-    $('#instructions').hide();
+    $('#instructions').toggle();
   });
 
   $('#forge-again').click(KarmaForge.reset);
