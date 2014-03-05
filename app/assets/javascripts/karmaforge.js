@@ -127,6 +127,7 @@ KarmaForge.reset = function(event) {
   event.preventDefault();
   $('#transaction-display').hide();
   $('#again').hide();
+  $('#item-search').hide();
   $('#location').show();
 };
 ///// End: Item Event Handlers //////
