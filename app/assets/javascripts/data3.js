@@ -4,15 +4,19 @@ KarmaForge.data3 = {};
 
 KarmaForge.data3.getData = function () {
   var data = $('#global-stats').attr('data');
-  return JSON.parse(data);
+  this.current_set = JSON.parse(data).locations;
+  return true;
 };
 
+// returns a canvas DOM element
+KarmaForge.data3.draw = function () {
+};
 // // array methods
 // d3.min(data);
 // d3.max(data);
 // d3.extent(data); // returns array of min max
 // d3.sum(data); // sums array
-// d3.mean(data);
+// d3.mean(data3a);
 // d3.median(data);
 // d3.shuffle(data); // shuffles around the values
 // data.sort(d3.descending); // sorts in descending order
