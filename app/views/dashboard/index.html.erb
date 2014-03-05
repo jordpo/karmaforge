@@ -8,8 +8,6 @@
     <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
   </div>
 
-  <div id="reset_button"><button id="reset">Reset</button></div>
-
   <div id="error-message">
   </div>
   <div id="location" class="form-inline">
@@ -18,6 +16,7 @@
       <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
       <%= f.submit "Next", class: "btn btn-info btn-lg" %>
     <% end %>
+    <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
   </div>
 
   <div id="item-search">
@@ -28,6 +27,7 @@
     <div id="item_save_button">
       <button id="item_save" class="btn btn-success btn-lg">Results</button>
     </div>
+    <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
   </div>
 
 
@@ -36,6 +36,7 @@
     <form id="ebay-button-form" action="http://www.ebay.com" method="get">
       <button id="sell" class="btn btn-primary">Sell</button>
     </form>
+    <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
   </div>
 
   <div id="transaction-display">
