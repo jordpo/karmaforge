@@ -5,35 +5,41 @@
 </head>
 <body>
   <header>
-    <h1 id="title">KarmaForge</h1>
-      <h3 id="welcome-message">Boost your community's <span> Karma-- <span>commit to donate or sell your old stuff.</h3>
-    <p>How does it work?</p>
+    <div class="jumbotron">
+      <h1 id="title">KarmaForge</h1>
+        <h3 id="tagline">Give your old things a new life and boost your community's <span id="karma"> Karma</span>!</h3>
+    </div>
+    <p id="instruction">How does it work?</p>
   </header>
-    <button id="enter">Forge!</button>
-      <div id="error-message">
-      </div>
+    <div id="intro">
+      <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
+    </div>
 
-      <div id="location">
-        <%= form_for :location do |f| %>
-          <%= f.text_field :city, placeholder: "City name", value: @location.city %>
-          <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
-          <%= f.submit "Next" %>
-        <% end %>
-      </div>
+    <div id="error-message">
+    </div>
+    <div id="location" class="form-inline">
+      <%= form_for :location do |f| %>
+        <%= f.text_field :city, placeholder: "City name", value: @location.city %>
+        <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
+        <%= f.submit "Next", class: "btn btn-info" %>
+      <% end %>
+    </div>
 
     <div id="item-search">
        <%= form_for :item do |f| %>
        <%= f.text_field :name, placeholder: "Enter item description" %>
-       <%= f.submit "Fetch eBay" %>
+       <%= f.submit "eBay", class: "btn btn-info" %>
        <% end %>
-
-       <button id="item_save">Next</button>
+      <div id="item_save_button">
+        <button id="item_save" class="btn btn-success btn-lg">Results</button>
+      </div>
     </div>
 
+
     <div id="ebay-display">
-    <button id="donate">Donate</button>
-      <form action="http://www.ebay.com" method="get">
-        <button id="sell">Sell</button>
+      <button id="donate" class="btn btn-danger">Donate and Forge</button>
+      <form id="ebay-button-form" action="http://www.ebay.com" method="get">
+        <button id="sell" class="btn btn-primary">Sell</button>
       </form>
     </div>
 

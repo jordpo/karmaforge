@@ -44,6 +44,7 @@ KarmaForge.createItem = function (event) {
 
   event.preventDefault();
   $('#item-search').prepend($('<p>', {html: $item.val() }));
+  $('#item_save_button').show();
 
   // Remove input val and hide form
   $item.val('');
@@ -69,6 +70,7 @@ KarmaForge.saveItem = function (event) {
   }).done(function (data) {
     item.id = data.id;
     $('#item-search').hide();
+    $('#item_save_button').hide();
     $('#ebay-display').show();
     $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
   });
