@@ -7,13 +7,25 @@
   <header>
     <h1 id="title">KarmaForge</h1>
       <h3 id="welcome-message">Boost your community's <span> Karma-- <span>commit to donate or sell your old stuff.</h3>
-    <p>How does it work?</p>
+    <p id="instructions">How does it work?</p>
+    <ol id="how-to-forge">
+      <li>Choose your city.</li>
+      <li>Find a thing you no longer need.</li>
+      <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
+    </ol>
+
+    <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
+
+    <p>Want to try to sell it? That's cool. Choose sell and you'll go to ebay's sign up page to try your luck!</p>
+
+    <p>Ready?</p>
   </header>
     <button id="enter">Forge!</button>
       <div id="error-message">
       </div>
 
       <div id="location">
+      <p>I'm forging karma for: </p>
         <%= form_for :location do |f| %>
           <%= f.text_field :city, placeholder: "City name", value: @location.city %>
           <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
@@ -22,8 +34,9 @@
       </div>
 
     <div id="item-search">
+      <p>Describe your item-- some good search terms include: name, brand, material, year, or condition.  Like Shrek DVD 2001</p>
        <%= form_for :item do |f| %>
-       <%= f.text_field :name, placeholder: "Enter item description" %>
+       <%= f.text_field :name, placeholder: "Enter Item Keywords" %>
        <%= f.submit "Fetch eBay" %>
        <% end %>
 
