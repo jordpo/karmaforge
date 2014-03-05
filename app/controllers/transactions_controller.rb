@@ -21,7 +21,11 @@ class TransactionsController < ApplicationController
     @location = Location.find(@transaction.location_id)
     @location.add_points(@transaction)
 
-    render json: { location: @location, user: current_user }
+    @locations = Location.order(total_points: :desc)
+      .where("total_points > 0")
+      .limit(5)
+    @locations = view_context.stat_data(@locations)
+    render json: { location: @location, user: current_user, location_data: @locations }
   end
 
   private

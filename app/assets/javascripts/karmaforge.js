@@ -98,6 +98,11 @@ KarmaForge.saveTransaction = function (event) {
         $('#user_pts').html(data.user.total_points);
       }
       KarmaForge.currentTransaction.render();
+
+      // Refresh location data for chart
+      $('#global-stats').attr('data', data.location_data);
+      KarmaForge.data3.getLocationData();
+      KarmaForge.data3.redraw();
   });
 }
 ///// End: Item Event Handlers //////
@@ -106,6 +111,9 @@ KarmaForge.saveTransaction = function (event) {
 ////////////////////////////////////////////////
 // Bind all Event Handlers
 KarmaForge.init = function () {
+  // Set location data and draw bar chart
+  KarmaForge.data3.init();
+
   $('#enter').click(function(){
     $('#location').show();
     $(this).hide();
