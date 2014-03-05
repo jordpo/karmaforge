@@ -128,6 +128,7 @@ KarmaForge.reset = function(event) {
   $('#transaction-display').hide();
   $('#again').hide();
   $('#item-search').hide();
+  $('#ebay-display').hide();
   $('#location').show();
 };
 ///// End: Item Event Handlers //////
@@ -155,7 +156,7 @@ KarmaForge.init = function () {
   });
 
   $('#forge-again').click(KarmaForge.reset);
-  $('#reset').click(KarmaForge.reset);
+  $('.reset').click(KarmaForge.reset);
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
   $('#item-search form').submit(KarmaForge.createItem.bind(this));

@@ -24,6 +24,12 @@ KarmaForge.ebay.call = function (item, count) {
 KarmaForge.ebay.result = [];
 
 KarmaForge.ebay.results = function(data) {
+  // check to see if ebay return an error object
+  if ( data.findCompletedItemsResponse[0].errorMessage != undefined ) {
+    this.result[2] = 'error';
+    return false;
+  }
+
   var items = data.findCompletedItemsResponse[0].searchResult[0].item || [],
     bid_total = 0,
     bid,
