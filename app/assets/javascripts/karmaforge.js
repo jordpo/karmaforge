@@ -42,6 +42,10 @@ KarmaForge.createItem = function (event) {
     this.currentItem = new KarmaForge.Item($item.val());
 
   event.preventDefault();
+
+  // make sure there is no current error being displayed
+  $('.notice-alert').empty();
+
   $('#item-search').prepend($('<p>', {html: $item.val(), id: 'item_el' }));
   $('#item_save_button').show();
   $('#ebay_el').remove();
@@ -52,8 +56,20 @@ KarmaForge.createItem = function (event) {
 }
 // Save item in DB and add item.id to JS object
 KarmaForge.saveItem = function (event) {
-  var item = this.currentItem;
+  var item = this.currentItem,
+    msg = "Oops. Please try again and perhaps reword the description!";
   event.preventDefault();
+
+  // if error display message and revert back to form
+  if ( KarmaForge.ebay.result[2] === "error" ) {
+     $('.notice-alert').append($('<p>', { html: msg, class: "alert" }))
+    $('#item_name').parent().show();
+    $('#item_el').remove();
+
+    // reset error and return false
+    KarmaForge.ebay.result[2] = undefined;
+    return false;
+  }
 
   // Get the avg price and avg bid
   item.ebayPrice();

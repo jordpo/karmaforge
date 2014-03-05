@@ -53,14 +53,17 @@ KarmaForge.ebay.results = function(data) {
     }
     price_total = price + price_total;
 
-    console.log(price);
-    console.log(bid);
   }
   // Average sums
   this.result[0] = parseFloat((price_total / length).toFixed(2));
   this.result[1] = parseInt(bid_total / length);
 
+
   console.log(items[0] === undefined );
+  // check for an error
+  if ( isNaN(this.result[0]) || isNaN(this.result[1]) ) {
+    this.result[2] = "error";
+  }
 }
 
 KarmaForge.ebay.filterItems = [
