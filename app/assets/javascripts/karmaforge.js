@@ -19,9 +19,6 @@ KarmaForge.saveLocation = function (event) {
 
       $('#error-message').hide();
 
-      $city.val('');
-      $state.val('');
-
       $.ajax({
         type: "POST",
         url: "/locations",
@@ -31,6 +28,8 @@ KarmaForge.saveLocation = function (event) {
         location.id = data.id;
         $('#location').hide();
         $('#item-search').show();
+        $('#item_name').parent().show();
+        $('#item_el').remove();
       });
     };
   }
@@ -43,8 +42,9 @@ KarmaForge.createItem = function (event) {
     this.currentItem = new KarmaForge.Item($item.val());
 
   event.preventDefault();
-  $('#item-search').prepend($('<p>', {html: $item.val() }));
+  $('#item-search').prepend($('<p>', {html: $item.val(), id: 'item_el' }));
   $('#item_save_button').show();
+  $('#ebay_el').remove();
 
   // Remove input val and hide form
   $item.val('');
@@ -72,7 +72,7 @@ KarmaForge.saveItem = function (event) {
     $('#item-search').hide();
     $('#item_save_button').hide();
     $('#ebay-display').show();
-    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel() }));
+    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel(), id: 'ebay_el' }));
   });
 }
 
