@@ -109,7 +109,7 @@ KarmaForge.init = function () {
   $('#enter').click(function(){
     $('#location').show();
     $(this).hide();
-    $('.notice, .alert').html('');
+    $('.notice-alert').html('');
   });
 
   $('#forge-again').click(function() {
