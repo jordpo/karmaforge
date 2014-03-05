@@ -11,6 +11,13 @@
  *= require_self
  *= require_tree .
  */
+#get-started {
+  display: inline;
+}
+
+#get-started li{
+  list-style: none;
+}
 
 
 #item_save_button {
