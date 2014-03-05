@@ -52,6 +52,9 @@ KarmaForge.ebay.results = function(data) {
       price = 0;
     }
     price_total = price + price_total;
+
+    console.log(price);
+    console.log(bid);
   }
   // Average sums
   this.result[0] = parseFloat((price_total / length).toFixed(2));

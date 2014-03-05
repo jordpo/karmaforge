@@ -15,6 +15,8 @@ gem 'coffee-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
+gem 'd3-rails'
+
 group :doc do
   gem 'sdoc', require: false
 end
