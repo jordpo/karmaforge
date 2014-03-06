@@ -39,14 +39,14 @@ KarmaForge.saveLocation = function (event) {
 // Set item to currentItem and use eBay script to get price and bid
 KarmaForge.createItem = function (event) {
     var $item = $('#item_name');
-    this.currentItem = new KarmaForge.Item($item.val().trim());
+    this.currentItem = new KarmaForge.Item($item.val().toUpperCase().trim());
 
   event.preventDefault();
 
   // make sure there is no current error being displayed
   $('.notice-alert').empty();
 
-  $('#item-search').prepend($('<p>', {html: $item.val().trim(), id: 'item_el' }));
+  $('#item-search').prepend($('<p>', {html: $item.val().toUpperCase().trim(), id: 'item_el' }));
   $('#item_save_button').show();
   $('#ebay_el').remove();
 
