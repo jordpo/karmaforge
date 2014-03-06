@@ -14,7 +14,11 @@ class DashboardController < ApplicationController
     end
 
     if location_id
-      @location = Location.find(location_id)
+      begin
+        @location = Location.find(location_id)
+      rescue ActiveRecord::RecordNotFound
+        @location = Location.new
+      end
     else
       @location = Location.new
     end
