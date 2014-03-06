@@ -8,23 +8,7 @@
     <div id="instructions">
         <ul id="get-started">
           <li>Your city <span style= 'color:tomato'>+</span> your old stuff <span style= 'color:tomato'>+</span> your decision to donate <span style= 'color:tomato'>=</span> Good Karma for you and your community. <em> You ready to forge some karma? </em></li> </br>
-          <!-- <li>Choose your city.</li>
-          <li>Find a thing you no longer need.</li>
-          <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
-        </ul> -->
 
-      <!-- <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
-      <ul id="get-started">
-        <li>Choose your city.</li>
-        <li>Find a thing you no longer need.</li>
-        <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
-      </ul>
-      <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
-
-
-      <p>Want to try to sell it? That's cool. Choose sell and you'll go to ebay's sign up page to try your luck!</p> -->
-
-      <!-- <p>Ready?</p> -->
 
     </div>
 
@@ -53,7 +37,7 @@
     </div>
 
   <div id="ebay-display">
-    <h3 id="ebay-display-result">Here's the average price of the last 10 items sold on ebay matching your keywords (and an idea of market interest based on average # of bids).</h3>
+    <p id="user-instructions">Here's an average price of the last 10 items sold on ebay that match your keywords (and an idea of market interest based on average # of bids).</br> </br>What do you want to do?</p>
     <button id="donate" class="btn btn-danger">Donate and Forge</button>
     <form id="ebay-button-form" action="http://www.ebay.com" method="get">
       <button id="sell" class="btn btn-primary">Sell</button>
@@ -63,8 +47,8 @@
 
     <div id="item-search">
        <%= form_for :item do |f| %>
-       <p>What do you need to get rid of?</p> </br>
-       <p>Describe it!  Give a name, brand, condition, year...</p>
+       <p id="user-instructions">What do you need to get rid of?</p>
+       <p id="user-instructions">Describe it!  Give a name, brand, condition, year...</p>
        <%= f.text_field :name, placeholder: "Enter item description" %>
        <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
        <% end %>
@@ -75,7 +59,7 @@
     </div>
 
     <div id="ebay-display">
-      <h3 id="ebay-results">Here's the average price of the last 10 items sold on ebay that match your keywords. And, an idea of market interest based on the average number of bids. </h3>
+      <p id="user-instructions">Here's the average price of the last 10 items sold on ebay that match your keywords. And, an idea of market interest based on the average number of bids.<em>What do you want to do?</em></p>
       <button id="donate" class="btn btn-danger">Donate and Forge</button>
       <form id="ebay-button-form" action="http://www.ebay.com" method="get">
         <button id="sell" class="btn btn-primary">Sell</button>
