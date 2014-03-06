@@ -17,9 +17,9 @@
   font-size: .75em;
 }
 
-#donate li {
+#donation-list li {
    font-family: 'Marvel';
-   font-size: .125em;
+   font-size: .35em;
    text-align: left;
    list-style: none;
  }
@@ -33,7 +33,7 @@
 #user-instructions {
   font-family: 'Marvel';
   font-size: .75em;
-  text-align:right;
+  text-align:center;
 }
 
 #item_save_button {
@@ -81,8 +81,6 @@
   text-align: center;
   vertical-align: center;
   font-family: 'Marvel';
-  float: right;
-  width: 50%;
 }
 
 #enter {
@@ -98,8 +96,6 @@
 #error-message {
   text-align: center;
   vertical-align: center;
-  float: right;
-  width: 50%;
 }
 
 #location {
@@ -108,9 +104,6 @@
   font-size: 2em;
   font-family: 'Marvel';
   display: none;
-  float: right;
-  width: 50%;
-  width: 700px;
 }
 
 #item-search {
@@ -119,9 +112,6 @@
   font-size: 2em;
   font-family: 'Marvel';
   display: none;
-  float: right;
-  width: 50%;
-  width: 700px;
 }
 
 #ebay-display {
@@ -130,9 +120,6 @@
   font-size: 2em;
   font-family: 'Marvel';
   display: none;
-  float: right;
-  width: 50%;
-  width: 700px;
 }
 
 form {
@@ -163,8 +150,6 @@ form button {
   font-size: 3em;
   font-family: 'Marvel';
   display: none;
-  float: right;
-  width: 50%;
 }
 
 #again{
@@ -172,8 +157,6 @@ form button {
   text-align: center;
   vertical-align: center;
   font-size: 2em;
-  float: right;
-  width: 50%;
 }
 
 .login-nav span {
@@ -217,45 +200,18 @@ form button {
 
 #global-stats {
   font-family: 'Marvel';
-  float: left;
-  width: 50%
-}
-
-@media (min-width: 751px) and (max-width: 1200px) {
-  .container {width: 730px; }
-  .navbar { width: 700px; }
-  #instruction { width: 700px; }
-  #jumbotron { width: 700px; }
-  #intro { width: 700px; }
-  #location { width: 700px;}
-  #item-search { width: 700px;}
-  #ebay-display { width: 700px;}
-  #transaction-display { width: 700px; }
-  #global-stats { width: 700px;}
-}
-
-@media (min-width: 451px) and (max-width: 750px) {
-  .container {width: 495px; }
-  .navbar { width: 465px; }
-  #instruction { width: 475px; }
-  #jumbotron { width: 475px; }
-  #intro { width: 475px; }
-  #location { width: 475px;}
-  #item-search { width: 475px;}
-  #ebay-display { width: 475px;}
-  #transaction-display { width: 475px; }
-  #global-stats { width: 475px;}
 }
 
 @media (max-width: 450px){
   .container {width: 420px; }
-  .navbar { width: 395px; }
+  .navbar { width: 390px; }
   #instruction { width: 400px; }
   #jumbotron { width: 400px; }
   #intro { width: 400px; }
-  #location { width: 400px;}
-  #item-search { width: 400px;}
-  #ebay-display { width: 400px;}
-  #transaction-display { width: 400px; }
-  #global-stats { width: 400px;}
+  #location { width: 400px; padding-right: 100px; }
+  #item-search { width: 400px; padding-right: 100px; }
+  #ebay-display { width: 400px; padding-right: 100px; }
+  #transaction-display { width: 400px; padding-right: 100px; }
+  #again { width: 400px; }
+  #global-stats { width: 400px; padding-right:50px; }
 }
