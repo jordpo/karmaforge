@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require d3
+//= require bind_polyfill
 //= require_tree .
 
 
