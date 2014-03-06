@@ -46,6 +46,7 @@ KarmaForge.createItem = function (event) {
   // make sure there is no current error being displayed
   $('.notice-alert').empty();
 
+  $('#user-instructions').hide();
   $('#item-search').prepend($('<p>', {html: $item.val().toUpperCase().trim(), id: 'item_el' }));
   $('#item_save_button').show();
   $('#ebay_el').remove();
@@ -53,6 +54,7 @@ KarmaForge.createItem = function (event) {
   // Remove input val and hide form
   $item.val('');
   $(event.target).hide();
+  $('#item_save').show();
 }
 // Save item in DB and add item.id to JS object
 KarmaForge.saveItem = function (event) {
@@ -132,6 +134,8 @@ KarmaForge.reset = function(event) {
   $('#item-search').hide();
   $('#ebay-display').hide();
   $('#location').show();
+  $('#user-instructions').show();
+  $('#item_save').hide();
 };
 ///// End: Item Event Handlers //////
 

@@ -11,7 +11,7 @@
       <%= form_for :location do |f| %>
         <%= f.text_field :city, placeholder: "City name", value: @location.city %>
         <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
-        <%= f.submit "Next", class: "btn btn-lg" %>
+        <%= f.submit "Next", class: "btn next-button btn-lg" %>
       <% end %>
       <div class="reset_button"><button class="reset btn btn-md">Reset</button></div>
     </div>
@@ -20,14 +20,14 @@
     </div>
 
     <div id="item-search">
-      <p id="user-instructions">What do you need to get rid of?</p>
-      <p id="user-instructions">Describe it!  Give a name, brand, condition, year...</p>
+      <p id="user-instructions">What do you need to get rid of?
+      <br>Describe it!  Give a name, brand, condition, year...</p>
        <%= form_for :item do |f| %>
        <%= f.text_field :name, placeholder: "Enter item description" %>
-       <%= f.submit "eBay", class: "btn btn-lg" %>
+       <%= f.submit "eBay", class: "btn next-button btn-lg" %>
        <% end %>
       <div id="item_save_button">
-        <button id="item_save" class="btn btn-lg">Results</button>
+        <button id="item_save" class="btn next-button btn-lg">Results</button>
       </div>
       <div class="reset_button"><button class="reset btn btn-md">Reset</button></div>
     </div>

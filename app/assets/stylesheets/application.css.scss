@@ -246,8 +246,10 @@ form button {
     margin: 50px 0;
   }
 
-  #how-does-it-work {
+  #how-does-it-work, .next-button {
     width: 100%;
+    height: 80px;
+    margin: 10px 0;
   }
   input {
     display: block;
@@ -262,5 +264,13 @@ form button {
   .login-nav a {
     display: block;
     margin-left: 100px;
+  }
+  #forge-again {
+    width: 100%;
+    height: 80px;
+  }
+  button.reset {
+    width: 100%;
+    margin-top: 20px;
   }
 }
