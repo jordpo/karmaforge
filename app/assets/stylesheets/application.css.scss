@@ -12,15 +12,16 @@
  *= require_tree .
  */
 
-
-#ebay-display-result {
-  text-align: right;
-}
-
 #instructions {
   display: none;
   font-family: 'Marvel';
   font-size: 1.5em;
+}
+
+#user-instructions {
+  font-family: 'Marvel';
+  font-size: .75em;
+  text-align:right;
 }
 
 #item_save_button {
