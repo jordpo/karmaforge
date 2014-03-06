@@ -116,6 +116,7 @@ KarmaForge.saveTransaction = function (event) {
         $('#user_pts').html(data.user.total_points);
       }
       KarmaForge.currentTransaction.render();
+      $('#current-item').html(KarmaForge.currentItem.name);
 
       // Refresh location data for chart
       $('#global-stats').attr('data', data.location_data);
