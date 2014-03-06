@@ -12,14 +12,22 @@
  *= require_tree .
  */
 
-#ebay-display-result {
-  text-align: right;
+
+#ebay-results {
+  font-family: 'Marvel';
+  font-size: .75em;
 }
 
 #instructions {
   display: none;
   font-family: 'Marvel';
   font-size: 1.5em;
+}
+
+#user-instructions {
+  font-family: 'Marvel';
+  font-size: .75em;
+  text-align:right;
 }
 
 #get-started {
