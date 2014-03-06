@@ -165,6 +165,9 @@ KarmaForge.init = function () {
   $('#item_save').click(KarmaForge.saveItem.bind(this));
   $('#donate').click(KarmaForge.saveTransaction.bind(this));
 
+  $('#sort_name').click(KarmaForge.data3.sortByName.bind(this.data3));
+  $('#sort_points').click(KarmaForge.data3.sortByPoints.bind(this.data3));
+
 };
 
 // Make sure to have our CSRF token on all post requests
