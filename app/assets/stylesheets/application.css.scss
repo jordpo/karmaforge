@@ -42,6 +42,35 @@
   display: none;
 }
 
+#how-does-it-work {
+  background-color: #5CACEE;
+}
+
+.reset {
+  background-color: tomato;
+  font-size: 1em;
+}
+
+#forge-again {
+  background-color: tomato;
+}
+
+#donate {
+  background-color: tomato;
+}
+
+#sell {
+  background-color: #5CACEE;
+}
+
+#sort_name {
+  background-color: #5CACEE;
+}
+
+#sort_points {
+  background-color: #5CACEE;
+}
+
 .notice {
   color: green;
 }
@@ -84,6 +113,7 @@
 }
 
 #enter {
+  background-color: tomato;
   font-family: 'Shadows Into Light';
   margin-top: 25px;
   transform:scale(2.0,2.0);
@@ -186,7 +216,7 @@ form button {
 }
 
 #icon-home a{
-  color: orange;
+  color: tomato;
 }
 
 #user_pts_container, #user_pts {
