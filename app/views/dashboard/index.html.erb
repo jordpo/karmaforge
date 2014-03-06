@@ -7,16 +7,17 @@
   <div class="container">
     <div id="instructions">
         <ul id="get-started">
-          <li>Choose your city.</li>
+          <li>Your city + your old stuff + your decision to donate = Good Karma for you and your community. <em> You ready to forge some karma? </em></li> </br>
+          <!-- <li>Choose your city.</li>
           <li>Find a thing you no longer need.</li>
           <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
-        </ul>
+        </ul> -->
 
-      <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
+      <!-- <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
 
-      <p>Want to try to sell it? That's cool. Choose sell and you'll go to ebay's sign up page to try your luck!</p>
+      <p>Want to try to sell it? That's cool. Choose sell and you'll go to ebay's sign up page to try your luck!</p> -->
 
-      <p>Ready?</p>
+      <!-- <p>Ready?</p> -->
       <button id="how-does-it-work">How does it work?</button>
     </div>
     <div id="intro">
@@ -38,7 +39,8 @@
 
     <div id="item-search">
        <%= form_for :item do |f| %>
-       <p>What do you have? Describe your item as accurately as possible-- some good search terms include: name, brand, material, year, size or condition.  For example, "Shrek DVD 2001"</p>
+       <p>What do you need to get rid of?</p> </br>
+       <p>Describe it!  Give a name, brand, condition, year...</p>
        <%= f.text_field :name, placeholder: "Enter item description" %>
        <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
        <% end %>
@@ -48,7 +50,7 @@
     </div>
 
     <div id="ebay-display">
-      <p>What does this mean? Here's the average price of the last ten items sold on ebay that match you keywords. And, based on the number of bids on the items, a general idea of the market's interest.</p>
+      <h3 id="ebay-results">Here's the average price of the last 10 items sold on ebay that match your keywords. And, an idea of market interest based on the average number of bids. </h3>
       <button id="donate" class="btn btn-danger">Donate and Forge</button>
       <form id="ebay-button-form" action="http://www.ebay.com" method="get">
         <button id="sell" class="btn btn-primary">Sell</button>
