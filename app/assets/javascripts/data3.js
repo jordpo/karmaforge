@@ -54,6 +54,7 @@ KarmaForge.data3.draw = function () {
     .enter()
       .append("text")
       .attr("text-anchor", "middle")
+      .attr("class", "bar-label")
       .attr("fill", "black")
       .attr("y", function (d, i) { return (i * 60) + 30; })
       .attr("x", 100)
@@ -62,7 +63,7 @@ KarmaForge.data3.draw = function () {
   svg.append("text")
       .attr("class", "x-label")
       .attr("text-anchor", "end")
-      .attr("x", width - 170)
+      .attr("x", width - 120)
       .attr("y", height - 30)
       .text("Karma Points Per Location");
 
@@ -72,9 +73,52 @@ KarmaForge.data3.draw = function () {
 };
 
 KarmaForge.data3.redraw = function () {
-  $('#global-stats svg').remove();
+  var svg = d3.select('svg'),
+    max = d3.max(this.current_set, function (d) { return +d.total_points } ),
+    width = 400,
+    height = 400,
+    widthScale,
+    color,
+    axis;
 
-  this.draw();
+  widthScale = d3.scale.linear()
+    .domain([0, max])
+    .range([0, width]);
+
+  color = d3.scale.linear()
+    .domain([0, max])
+    .range(["#CCFFFF", "#FFCC66"]);
+
+  axis = d3.svg.axis()
+    .orient("top")
+    .scale(widthScale);
+
+  svg.selectAll("rect")
+    .data(this.current_set)
+    .transition()
+      .duration(1000)
+      .attr("width", function (d) { return widthScale(d.total_points); } )
+      .attr("height", 50 )
+      .attr("fill", function (d) { return color(d.total_points); })
+      .attr("y", function (d, i) { return i * 60; });
+
+  svg.selectAll(".bar-label")
+    .data(this.current_set)
+    .transition()
+      .duration(1000)
+      .attr("y", function (d, i) { return (i * 60) + 30; })
+      .attr("x", 100)
+      .text(function (d) { return d.city + ", " + d.state });
+};
+
+KarmaForge.data3.sortByName = function () {
+  this.current_set.sort(function(a,b) { return a.city > b.city ? 1 : -1; });
+  this.redraw();
+};
+
+KarmaForge.data3.sortByPoints = function () {
+  this.current_set.sort(function(a,b) { return a.total_points < b.total_points ? 1 : -1; });
+  this.redraw();
 };
 
 KarmaForge.data3.init = function () {
