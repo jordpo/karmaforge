@@ -4,19 +4,20 @@ KarmaForge.data3 = {};
 
 KarmaForge.data3.getLocationData = function () {
   var data = $('#global-stats').attr('data');
-  this.current_set = JSON.parse(data).locations;
+  this.current_set = JSON.parse(data);
   return true;
 };
 
 // appends canvas on DOM
 KarmaForge.data3.draw = function () {
-  var max = d3.max(this.current_set, function (d) { return +d.points } ),
+  var max = d3.max(this.current_set, function (d) { return +d.total_points } ),
     width = 500,
     height = 400,
     widthScale,
     color,
     axis,
-    canvas;
+    canvas,
+    svg;
 
   widthScale = d3.scale.linear()
     .domain([0, max])
@@ -24,7 +25,7 @@ KarmaForge.data3.draw = function () {
 
   color = d3.scale.linear()
     .domain([0, max])
-    .range(["red", "blue"]);
+    .range(["#CCFFFF", "#FFCC66"]);
 
   axis = d3.svg.axis()
     .orient("top")
@@ -37,24 +38,33 @@ KarmaForge.data3.draw = function () {
     .append("g") // groups all rectangles in one group
     .attr("transform", "translate(20, 0)");
 
+  svg = d3.select('svg');
+
   canvas.selectAll("rect") //returns an empty selection that can be used to bind to our data
     .data(this.current_set) // specify data source
     .enter() // returns placeholders for each data element with no DOM elements, initializes a loop
       .append("rect")
-      .attr("width", function (d) { return widthScale(d.points); } )
+      .attr("width", function (d) { return widthScale(d.total_points); } )
       .attr("height", 50 )
-      .attr("fill", function (d) { return color(d.points); })
+      .attr("fill", function (d) { return color(d.total_points); })
       .attr("y", function (d, i) { return i * 60; });
 
-  d3.select('svg').selectAll("text")
+  svg.selectAll("text")
     .data(this.current_set)
     .enter()
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("fill", "white")
+      .attr("fill", "black")
       .attr("y", function (d, i) { return (i * 60) + 30; })
       .attr("x", 100)
       .text(function (d) { return d.city + ", " + d.state });
+
+  svg.append("text")
+      .attr("class", "x-label")
+      .attr("text-anchor", "end")
+      .attr("x", width - 170)
+      .attr("y", height - 30)
+      .text("Karma Points Per Location");
 
   canvas.append("g")
     .attr("transform", "translate(0, 350)")
