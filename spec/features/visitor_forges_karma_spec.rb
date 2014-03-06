@@ -20,9 +20,9 @@ feature 'Forge Karma' do
 
     fill_in 'Enter item description', with: 'Nintendo 3ds'
     click_button 'eBay'
-    expect(page).to have_content "Nintendo 3ds"
-    click_button 'Results'
-    expect(page).to have_content "Here's an average price of the last 10 items sold on ebay that match your keywords (and an idea of market interest based on average # of bids)"
+    expect(page).to have_content "NINTENDO 3DS"
+    click_button 'Show results'
+    expect(page).to have_content "Here's the average price of the last 10 items sold on ebay that match your keywords."
 
     click_button 'Donate and Forge'
     expect(page).to have_content "You forged"
