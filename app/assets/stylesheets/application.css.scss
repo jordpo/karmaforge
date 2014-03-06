@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+#ebay-display-result {
+  text-align: right;
+}
+
 #instructions {
   display: none;
 }
@@ -23,11 +27,6 @@
 #get-started li {
   list-style: none;
 }
-
-#ebay-results {
-  text-align: right;
-}
-
 
 #item_save_button {
   text-align: center;
