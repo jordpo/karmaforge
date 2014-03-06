@@ -202,16 +202,35 @@ form button {
   font-family: 'Marvel';
 }
 
-@media (max-width: 450px){
-  .container {width: 420px; }
-  .navbar { width: 390px; }
-  #instruction { width: 400px; }
-  #jumbotron { width: 400px; }
-  #intro { width: 400px; }
-  #location { width: 400px; padding-right: 100px; }
-  #item-search { width: 400px; padding-right: 100px; }
-  #ebay-display { width: 400px; padding-right: 100px; }
-  #transaction-display { width: 400px; padding-right: 100px; }
-  #again { width: 400px; }
-  #global-stats { width: 400px; padding-right:50px; }
+@media (max-device-width: 450px){
+  #title {
+    font-size: 3em;
+  }
+  #tagline {
+    font-size: 2em;
+  }
+  #global-stats svg,  {
+    width: 100%;
+  }
+  #enter {
+    margin: 50px 0;
+  }
+
+  #how-does-it-work {
+    width: 100%;
+  }
+  input {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  #sort_name, #sort_points {
+    width: 100%;
+    margin: 5px;
+  }
+  .login-nav a {
+    display: block;
+    margin-left: 100px;
+  }
 }
