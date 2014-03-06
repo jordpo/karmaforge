@@ -11,7 +11,7 @@
       <%= form_for :location do |f| %>
         <%= f.text_field :city, placeholder: "City name", value: @location.city %>
         <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
-        <%= f.submit "Next", class: "btn btn-lg", id: "location_button" %>
+        <%= f.submit "Next", class: "btn next-button btn-lg", id: "location_button" %>
       <% end %>
       <div class="reset_button"><button class="reset btn btn-sm">Reset</button></div>
     </div>
@@ -20,14 +20,14 @@
     </div>
 
     <div id="item-search">
-      <p id="user-instructions">What do you need to get rid of?</p>
-      <p id="user-instructions">Describe it!  Give a name, brand, condition, year...</p>
+      <p id="user-instructions">What do you need to get rid of?
+      <br>Describe it!  Give a name, brand, condition, year...</p>
        <%= form_for :item do |f| %>
        <%= f.text_field :name, placeholder: "Enter item description" %>
-       <%= f.submit "eBay", class: "btn btn-lg", id: "ebay_button" %>
+       <%= f.submit "eBay", class: "btn next-button btn-lg", id: "ebay_button" %>
        <% end %>
       <div id="item_save_button">
-        <button id="item_save" class="btn btn-lg">Show results</button>
+        <button id="item_save" class="btn next-button btn-lg">Show results</button>
       </div>
       <div class="reset_button"><button class="reset btn btn-sm">Reset</button></div>
     </div>
@@ -45,9 +45,9 @@
        <ul id="donation-list">
         <li><span style= 'color:tomato'>Give your <span id="current-item"></span> a new life!</span></br></br></li>
         <li>Donate to your local:</li>
-        <li><a href="http://www.goodwill.org/donate-and-shop/donate-stuff/">Goodwill</a>
-        <li><a href="http://satruck.org">Salvation Army</a>
-        <li><a href="http://www.planetaid.org/your-local-planet-aid">Planet Aid</a>
+        <li><a href="http://www.goodwill.org/donate-and-shop/donate-stuff/" target="_blank">Goodwill</a>
+        <li><a href="http://satruck.org" target="_blank">Salvation Army</a>
+        <li><a href="http://www.planetaid.org/your-local-planet-aid" target="_blank">Planet Aid</a>
        </ul>
 
         <button id="forge-again" class="btn btn-md">Forge again</button>
