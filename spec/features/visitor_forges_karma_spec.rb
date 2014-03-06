@@ -23,5 +23,11 @@ feature 'Forge Karma' do
     expect(page).to have_content "Nintendo 3ds"
     click_button 'Results'
     expect(page).to have_content "Here's an average price of the last 10 items sold on ebay that match your keywords (and an idea of market interest based on average # of bids)"
+
+    click_button 'Donate and Forge'
+    expect(page).to have_content "You forged"
+    click_button "Forge again"
+    find_field('City name').value.should eq 'Cambridge'
+    find_field('State abbreviation').value.should eq 'MA'
   end
 end
