@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Forge Karma' do
-  context 'create user', :js do
+  background do
     @user = FactoryGirl.create(:user)
   end
   scenario 'visitor gets more info', :js do
@@ -29,5 +29,8 @@ feature 'Forge Karma' do
     click_button "Forge again"
     find_field('City name').value.should eq 'Cambridge'
     find_field('State abbreviation').value.should eq 'MA'
+
+    sign_in_as(@user)
+    expect(page).to have_content " karma points saved!"
   end
 end
