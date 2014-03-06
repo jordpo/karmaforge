@@ -19,3 +19,13 @@ KarmaForge.Item.prototype.interestLevel = function () {
     return 'High';
   }
 };
+
+KarmaForge.Item.prototype.interestLevelNumber = function () {
+  if ( this.bid < 5 ) {
+    return 10;
+  } else if ( this.bid < 10 ) {
+    return 30;
+  } else {
+    return 100;
+  }
+};
