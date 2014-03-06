@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+
 #ebay-display-result {
   text-align: right;
 }
@@ -22,25 +23,9 @@
   font-size: 1.5em;
 }
 
-#get-started {
-  display: inline;
-}
-
-#get-started li {
-  list-style: none;
-}
-
 #item_save_button {
   text-align: center;
   vertical-align: center;
-  display: none;
-}
-
-#transaction-display {
-  display: none;
-}
-
-#ebay-display {
   display: none;
 }
 
@@ -220,3 +205,41 @@ form button {
   width: 50%
 }
 
+@media (min-width: 751px) and (max-width: 1200px) {
+  .container {width: 730px; }
+  .navbar { width: 700px; }
+  #instruction { width: 700px; }
+  #jumbotron { width: 700px; }
+  #intro { width: 700px; }
+  #location { width: 700px;}
+  #item-search { width: 700px;}
+  #ebay-display { width: 700px;}
+  #transaction-display { width: 700px; }
+  #global-stats { width: 700px;}
+}
+
+@media (min-width: 451px) and (max-width: 750px) {
+  .container {width: 495px; }
+  .navbar { width: 465px; }
+  #instruction { width: 475px; }
+  #jumbotron { width: 475px; }
+  #intro { width: 475px; }
+  #location { width: 475px;}
+  #item-search { width: 475px;}
+  #ebay-display { width: 475px;}
+  #transaction-display { width: 475px; }
+  #global-stats { width: 475px;}
+}
+
+@media (max-width: 450px){
+  .container {width: 395px; }
+  .navbar { width: 365px; }
+  #instruction { width: 375px; }
+  #jumbotron { width: 375px; }
+  #intro { width: 375px; }
+  #location { width: 375px;}
+  #item-search { width: 375px;}
+  #ebay-display { width: 375px;}
+  #transaction-display { width: 375px; }
+  #global-stats { width: 375px;}
+}

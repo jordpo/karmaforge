@@ -11,7 +11,7 @@ KarmaForge.data3.getLocationData = function () {
 // appends canvas on DOM
 KarmaForge.data3.draw = function () {
   var max = d3.max(this.current_set, function (d) { return +d.points } ),
-    width = 500,
+    width = 400,
     height = 400,
     widthScale,
     color,

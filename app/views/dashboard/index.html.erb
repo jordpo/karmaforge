@@ -4,33 +4,15 @@
   <title>KarmaForge</title>
 </head>
 <body>
-  <div class="container">
+
     <div id="instructions">
-        <ul id="get-started">
-          <li>Your city <span style= 'color:tomato'>+</span> your old stuff <span style= 'color:tomato'>+</span> your decision to donate <span style= 'color:tomato'>=</span> Good Karma for you and your community. <em> You ready to forge some karma? </em></li> </br>
-          <!-- <li>Choose your city.</li>
-          <li>Find a thing you no longer need.</li>
-          <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
-        </ul> -->
-
-      <!-- <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
-      <ul id="get-started">
-        <li>Choose your city.</li>
-        <li>Find a thing you no longer need.</li>
-        <li>See about how much you'd get auctioning on ebay (and if anyone would want it)</li>
-      </ul>
-      <p>Then what? Choose to donate your stuff and forge karma for yourself and your community! Why? Because giving your old things away benefits everyone. And, it's fun! Each item has a karmic value that's revealed and added to your karma points and your city's whenever you choose to donate.</p>
-
-
-      <p>Want to try to sell it? That's cool. Choose sell and you'll go to ebay's sign up page to try your luck!</p> -->
-
-      <!-- <p>Ready?</p> -->
-
+        <p id="get-started">Your city <span style= 'color:tomato'>+</span> your old stuff <span style= 'color:tomato'>+</span> your decision to donate <span style= 'color:tomato'>=</span> Good Karma for you and your community. <em> You ready to forge some karma?</em></p>
     </div>
 
     <button id="how-does-it-work" class="btn btn-success">How does it work?</button>
 
     <div id="location" class="form-inline">
+      <p>I'm forging karma for: </p>
       <%= form_for :location do |f| %>
         <%= f.text_field :city, placeholder: "City name", value: @location.city %>
         <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
@@ -40,16 +22,6 @@
     </div>
     <div id="intro">
       <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
-    </div>
-  </div>
-
-    <div id="location" class="form-inline">
-      <p>I'm forging karma for: </p>
-      <%= form_for :location do |f| %>
-        <%= f.text_field :city, placeholder: "City name", value: @location.city %>
-        <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
-        <%= f.submit "Next", class: "btn btn-info btn-lg" %>
-      <% end %>
     </div>
 
   <div id="ebay-display">
@@ -82,12 +54,11 @@
       </form>
     </div>
 
-  <div id="transaction-display">
-   <div id="again">
-    <button id="forge-again" class="btn btn-warning">Forge again</button>
-  </div>
-  </div>
-
+    <div id="transaction-display">
+       <div id="again">
+        <button id="forge-again" class="btn btn-warning">Forge again</button>
+      </div>
+    </div>
 
     <div id="global-stats" data="<%= stat_data(@locations) %>">
       <h2>Top 5 Locations</h2>
