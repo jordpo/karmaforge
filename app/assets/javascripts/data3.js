@@ -24,7 +24,7 @@ KarmaForge.data3.draw = function () {
 
   color = d3.scale.linear()
     .domain([0, max])
-    .range(["red", "blue"]);
+    .range(["#CCFFFF", "#FFCC66"]);
 
   axis = d3.svg.axis()
     .orient("top")
@@ -51,7 +51,7 @@ KarmaForge.data3.draw = function () {
     .enter()
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("fill", "white")
+      .attr("fill", "black")
       .attr("y", function (d, i) { return (i * 60) + 30; })
       .attr("x", 100)
       .text(function (d) { return d.city + ", " + d.state });
