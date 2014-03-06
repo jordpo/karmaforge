@@ -24,6 +24,12 @@ KarmaForge.ebay.call = function (item, count) {
 KarmaForge.ebay.result = [];
 
 KarmaForge.ebay.results = function(data) {
+  // check to see if ebay return an error object
+  if ( data.findCompletedItemsResponse[0].errorMessage != undefined ) {
+    this.result[2] = 'error';
+    return false;
+  }
+
   var items = data.findCompletedItemsResponse[0].searchResult[0].item || [],
     bid_total = 0,
     bid,
@@ -61,7 +67,8 @@ KarmaForge.ebay.results = function(data) {
 
   console.log(items[0] === undefined );
   // check for an error
-  if ( isNaN(this.result[0]) || isNaN(this.result[1]) ) {
+  if ( isNaN(this.result[0]) || isNaN(this.result[1])
+      || this.result[0] === undefined || this.result[1] === undefined ) {
     this.result[2] = "error";
   }
 }

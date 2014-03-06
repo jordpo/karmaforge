@@ -89,6 +89,7 @@ KarmaForge.saveItem = function (event) {
     $('#item_save_button').hide();
     $('#ebay-display').show();
     $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel(), id: 'ebay_el' }));
+    $('#transaction-display p').remove();
   });
 }
 
@@ -128,6 +129,7 @@ KarmaForge.reset = function(event) {
   $('#transaction-display').hide();
   $('#again').hide();
   $('#item-search').hide();
+  $('#ebay-display').hide();
   $('#location').show();
 };
 ///// End: Item Event Handlers //////
@@ -145,8 +147,17 @@ KarmaForge.init = function () {
     $('.notice-alert').html('');
   });
 
+  $('#hide-oldest-button').click(function(){
+           $('div:lt(3)').hide();
+       });
+
+
+  $('#how-does-it-work').click(function(){
+    $('#instructions').toggle();
+  });
+
   $('#forge-again').click(KarmaForge.reset);
-  $('#reset').click(KarmaForge.reset);
+  $('.reset').click(KarmaForge.reset);
 
   $('#location form').on('submit', KarmaForge.saveLocation.bind(this));
   $('#item-search form').submit(KarmaForge.createItem.bind(this));

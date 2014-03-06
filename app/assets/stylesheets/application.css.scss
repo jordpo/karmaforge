@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+#instructions {
+  display: none;
+}
+
 #get-started {
   display: inline;
 }
@@ -197,6 +202,15 @@ form button {
 
 #icon-home a{
   color: orange;
+}
+
+#user_pts_container, #user_pts {
+  color: orange;
+  font-size: 1em;
+}
+#user_pts {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 #global-stats {
