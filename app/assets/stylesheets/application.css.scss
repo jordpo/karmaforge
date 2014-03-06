@@ -60,7 +60,8 @@
 
 .reset {
   background-color: tomato;
-  font-size: 1em;
+  font-size: .8em;
+  margin: 20px 0;
 }
 
 #forge-again {
@@ -88,6 +89,13 @@
 }
 .alert {
   color: red;
+}
+#global-stats {
+  margin-top: 60px;
+}
+
+.next-button {
+  font-size: 1.2em;
 }
 
 .login-nav span{
