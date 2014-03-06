@@ -71,6 +71,7 @@ KarmaForge.saveItem = function (event) {
     return false;
   }
 
+
   // Get the avg price and avg bid
   item.ebayPrice();
 
