@@ -1,76 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>KarmaForge</title>
-</head>
-<body>
-  <div id="instructions">
-      <p id="get-started">Your city <span style= 'color:tomato'>+</span> your old stuff <span style= 'color:tomato'>+</span> your decision to donate <span style= 'color:tomato'>=</span> Good Karma for you and your community. <em> You ready to forge some karma?</em></p>
-  </div>
-
-  <button id="how-does-it-work" class="btn btn-success">How does it work?</button>
-
-  <div id="location" class="form-inline">
-    <p>I'm forging karma for: </p>
-    <%= form_for :location do |f| %>
-      <%= f.text_field :city, placeholder: "City name", value: @location.city %>
-      <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
-      <%= f.submit "Next", class: "btn btn-info btn-lg" %>
-    <% end %>
-    <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
-  </div>
-  <div id="intro">
-    <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
-  </div>
-
-  <div id="ebay-display">
-    <p id="user-instructions">Here's an average price of the last 10 items sold on ebay that match your keywords (and an idea of market interest based on average # of bids).</br> </br>What do you want to do?</p>
-    <button id="donate" class="btn btn-danger">Donate and Forge</button>
-    <form id="ebay-button-form" action="http://www.ebay.com" method="get">
-      <button id="sell" class="btn btn-primary">Sell</button>
-    </form>
-    <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
-  </div>
-
-  <div id="item-search">
-     <%= form_for :item do |f| %>
-     <p id="user-instructions">What do you need to get rid of?</p>
-     <p id="user-instructions">Describe it!  Give a name, brand, condition, year...</p>
-     <%= f.text_field :name, placeholder: "Enter item description" %>
-     <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
-     <% end %>
-    <div id="item_save_button">
-      <button id="item_save" class="btn btn-success btn-lg">Results</button>
+<div class="row">
+  <div class="col-md-6">
+    <div id="instructions">
+        <p id="get-started">Your city <span style= 'color:tomato'>+</span> your old stuff <span style= 'color:tomato'>+</span> your decision to donate <span style= 'color:tomato'>=</span> Good Karma for you and your community. <em> You ready to forge some karma?</em></p>
     </div>
-    <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
-  </div>
 
-  <div id="ebay-display">
-    <p id="user-instructions">Here's the average price of the last 10 items sold on ebay that match your keywords. And, an idea of market interest based on the average number of bids.<em>What do you want to do?</em></p>
-    <button id="donate" class="btn btn-danger">Donate and Forge</button>
-    <form id="ebay-button-form" action="http://www.ebay.com" method="get">
-      <button id="sell" class="btn btn-primary">Sell</button>
-    </form>
-  </div>
-
-  <div id="transaction-display">
-    <div id="again">
-     <ul id="donate">
-      <li><span style= 'color:tomato'>Give it a new life!</span></br></br></li>
-      <li>Donate to your local:</li>
-      <li><a href="http://www.goodwill.org/donate-and-shop/donate-stuff/">Goodwill</a>
-      <li><a href="http://satruck.org">Salvation Army</a>
-      <li><a href="http://www.planetaid.org/your-local-planet-aid">Planet Aid</a>
-     </ul>
-
-      <button id="forge-again" class="btn btn-warning">Forge again</button>
+    <button id="how-does-it-work" class="btn btn-success">How does it work?</button>
+    <div id="global-stats" data="<%= @locations.to_json %>">
+      <h2>Karma Forger Hall of Fame</h2>
     </div>
   </div>
+  <div class="col-md-6">
+    <div id="location" class="form-inline">
+      <p>I'm forging karma for: </p>
+      <%= form_for :location do |f| %>
+        <%= f.text_field :city, placeholder: "City name", value: @location.city %>
+        <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
+        <%= f.submit "Next", class: "btn btn-info btn-lg" %>
+      <% end %>
+      <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
+    </div>
+    <div id="intro">
+      <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
+    </div>
 
-  <div id="global-stats" data="<%= @locations.to_json %>">
-    <h2>Karma Forger Hall of Fame</h2>
+    <div id="ebay-display">
+      <p id="user-instructions">Here's an average price of the last 10 items sold on ebay that match your keywords (and an idea of market interest based on average # of bids).</br> </br>What do you want to do?</p>
+      <button id="donate" class="btn btn-danger">Donate and Forge</button>
+      <form id="ebay-button-form" action="http://www.ebay.com" method="get">
+        <button id="sell" class="btn btn-primary">Sell</button>
+      </form>
+      <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
+    </div>
+
+    <div id="item-search">
+       <%= form_for :item do |f| %>
+       <p id="user-instructions">What do you need to get rid of?</p>
+       <p id="user-instructions">Describe it!  Give a name, brand, condition, year...</p>
+       <%= f.text_field :name, placeholder: "Enter item description" %>
+       <%= f.submit "eBay", class: "btn btn-info btn-lg" %>
+       <% end %>
+      <div id="item_save_button">
+        <button id="item_save" class="btn btn-success btn-lg">Results</button>
+      </div>
+      <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
+    </div>
+
+    <div id="ebay-display">
+      <p id="user-instructions">Here's the average price of the last 10 items sold on ebay that match your keywords. And, an idea of market interest based on the average number of bids.<em>What do you want to do?</em></p>
+      <button id="donate" class="btn btn-danger">Donate and Forge</button>
+      <form id="ebay-button-form" action="http://www.ebay.com" method="get">
+        <button id="sell" class="btn btn-primary">Sell</button>
+      </form>
+    </div>
+
+    <div id="transaction-display">
+      <div id="again">
+       <ul id="donate">
+        <li><span style= 'color:tomato'>Give it a new life!</span></br></br></li>
+        <li>Donate to your local:</li>
+        <li><a href="http://www.goodwill.org/donate-and-shop/donate-stuff/">Goodwill</a>
+        <li><a href="http://satruck.org">Salvation Army</a>
+        <li><a href="http://www.planetaid.org/your-local-planet-aid">Planet Aid</a>
+       </ul>
+
+        <button id="forge-again" class="btn btn-warning">Forge again</button>
+      </div>
+    </div>
   </div>
-
-</body>
-</html>
-
+</div>
