@@ -63,8 +63,8 @@ KarmaForge.saveItem = function (event) {
   event.preventDefault();
 
   // if error display message and revert back to form
-  if ( KarmaForge.ebay.result[2] === "error" || KarmaForge.currentItem.price === undefined ) {
-     $('.notice-alert').append($('<p>', { html: msg, class: "alert" }))
+  if ( KarmaForge.ebay.result[2] === "error" ) {
+     $('.notice-alert').append($('<p>', { html: msg, class: "alert well" }))
     $('#item_name').parent().show();
     $('#item_el').remove();
 
