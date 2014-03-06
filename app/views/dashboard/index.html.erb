@@ -4,19 +4,19 @@
       <p id="get-started">Your city <span style= 'color:tomato'>+</span> your old stuff <span style= 'color:tomato'>+</span> your decision to donate <span style= 'color:tomato'>=</span> Good Karma for you and your community. <em> You ready to forge some karma?</em></p>
     </div>
 
-    <button id="how-does-it-work" class="btn btn-primary">How does it work?</button>
+    <button id="how-does-it-work" class="btn btn-md">How does it work?</button>
 
     <div id="location">
       <p>I'm forging karma for: </p>
       <%= form_for :location do |f| %>
         <%= f.text_field :city, placeholder: "City name", value: @location.city %>
         <%= f.text_field :state, placeholder: "State abbreviation", value: @location.state %>
-        <%= f.submit "Next", class: "btn btn-primary btn-lg" %>
+        <%= f.submit "Next", class: "btn btn-lg" %>
       <% end %>
-      <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
+      <div class="reset_button"><button class="reset btn btn-md">Reset</button></div>
     </div>
     <div id="intro">
-      <button id="enter" class="btn-warning btn-lg">Enter the Forge</button>
+      <button id="enter" class="btn btn-lg">Enter the Forge</button>
     </div>
 
     <div id="item-search">
@@ -24,19 +24,19 @@
       <p id="user-instructions">Describe it!  Give a name, brand, condition, year...</p>
        <%= form_for :item do |f| %>
        <%= f.text_field :name, placeholder: "Enter item description" %>
-       <%= f.submit "eBay", class: "btn btn-primary btn-lg" %>
+       <%= f.submit "eBay", class: "btn btn-lg" %>
        <% end %>
       <div id="item_save_button">
-        <button id="item_save" class="btn btn-primary btn-lg">Results</button>
+        <button id="item_save" class="btn btn-lg">Results</button>
       </div>
-      <div class="reset_button"><button class="reset btn btn-warning">Reset</button></div>
+      <div class="reset_button"><button class="reset btn btn-md">Reset</button></div>
     </div>
 
     <div id="ebay-display">
       <p id="user-instructions">Here's the average price of the last 10 items sold on ebay that match your keywords. And, an idea of market interest based on the average number of bids.<em>What do you want to do?</em></p>
-      <button id="donate" class="btn btn-danger">Donate and Forge</button>
+      <button id="donate" class="btn btn-md">Donate and Forge</button>
       <form id="ebay-button-form" action="http://www.ebay.com" method="get">
-        <button id="sell" class="btn btn-primary">Sell</button>
+        <button id="sell" class="btn btn-md">Sell</button>
       </form>
     </div>
 
@@ -50,7 +50,7 @@
         <li><a href="http://www.planetaid.org/your-local-planet-aid">Planet Aid</a>
        </ul>
 
-        <button id="forge-again" class="btn btn-warning">Forge again</button>
+        <button id="forge-again" class="btn btn-md">Forge again</button>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
     <div id="global-stats" data="<%= @locations.to_json %>">
       <h2>Karma Forger Hall of Fame</h2>
     </div>
-    <button id="sort_name" class="btn btn-primary">Sort by City</button>
-    <button id="sort_points" class="btn btn-primary">Sort by Points</button>
+    <button id="sort_name" class="btn btn-md">Sort by City</button>
+    <button id="sort_points" class="btn btn-md">Sort by Points</button>
   </div>
 </div>
