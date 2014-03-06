@@ -73,8 +73,8 @@
   </div>
 
 
-    <div id="global-stats" data="<%= stat_data(@locations) %>">
-      <h2>Top 5 Locations</h2>
+    <div id="global-stats" data="<%= @locations.to_json %>">
+      <h2>Karma Forger Hall of Fame</h2>
     </div>
 
 </body>
