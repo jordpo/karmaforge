@@ -259,7 +259,11 @@ form button {
 
   #sort_name, #sort_points {
     width: 100%;
-    margin: 5px;
+    margin: 5px 0;
+    height: 50px;
+  }
+  #sort_points {
+    margin-bottom: 25px;
   }
   .login-nav a {
     display: block;
@@ -272,5 +276,11 @@ form button {
   button.reset {
     width: 100%;
     margin-top: 20px;
+  }
+
+  #sell, #donate {
+    width: 140px;
+    height: 40px;
+    margin: 3 0px 0;
   }
 }
