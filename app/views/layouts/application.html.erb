@@ -32,21 +32,20 @@
         </div>
       </div>
     </div>
-    <div class="notice-alert">
-      <!-- Notice and Alerts -->
-      <% if notice.present? %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
-      <% if alert.present?%>
-        <p class="alert"><%= alert %></p>
-     <% end%>
-    </div>
     <div class="jumbotron">
       <h1 id="title">KarmaForge</h1>
         <h3 id="tagline">Give your old things a new life and boost your community's <span id="karma"> Karma</span>!</h3>
     </div>
-
-  <%= yield %>
+    <div class="notice-alert">
+      <!-- Notice and Alerts -->
+      <% if notice.present? %>
+        <p class="notice well"><%= notice %></p>
+      <% end %>
+      <% if alert.present?%>
+        <p class="alert well"><%= alert %></p>
+     <% end%>
+    </div>
+    <%= yield %>
   </div>
 </body>
 </html>

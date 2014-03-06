@@ -59,11 +59,11 @@ KarmaForge.createItem = function (event) {
 // Save item in DB and add item.id to JS object
 KarmaForge.saveItem = function (event) {
   var item = this.currentItem,
-    msg = "Oops. Please try again and perhaps reword the description!";
+    msg = "Oops. Please try again.";
   event.preventDefault();
 
   // if error display message and revert back to form
-  if ( KarmaForge.ebay.result[2] === "error" ) {
+  if ( KarmaForge.ebay.result[2] === "error" || KarmaForge.currentItem.price === undefined ) {
      $('.notice-alert').append($('<p>', { html: msg, class: "alert" }))
     $('#item_name').parent().show();
     $('#item_el').remove();
