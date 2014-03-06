@@ -63,7 +63,7 @@ KarmaForge.data3.draw = function () {
   svg.append("text")
       .attr("class", "x-label")
       .attr("text-anchor", "end")
-      .attr("x", width - 170)
+      .attr("x", width - 120)
       .attr("y", height - 30)
       .text("Karma Points Per Location");
 
