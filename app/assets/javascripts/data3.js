@@ -72,7 +72,7 @@ KarmaForge.data3.draw = function () {
     .call(axis);
 };
 
-KarmaForge.data3.redraw = function () {
+KarmaForge.data3.redraw = function (func) {
   var svg = d3.select('svg'),
     max = d3.max(this.current_set, function (d) { return +d.total_points } ),
     width = 400,
@@ -94,7 +94,7 @@ KarmaForge.data3.redraw = function () {
     .scale(widthScale);
 
   svg.selectAll("rect")
-    .data(this.current_set)
+    .data(this.current_set).sort(func)
     .transition()
       .duration(1000)
       .attr("width", function (d) { return widthScale(d.total_points); } )
@@ -103,7 +103,7 @@ KarmaForge.data3.redraw = function () {
       .attr("y", function (d, i) { return i * 60; });
 
   svg.selectAll(".bar-label")
-    .data(this.current_set)
+    .data(this.current_set).sort(func)
     .transition()
       .duration(1000)
       .attr("y", function (d, i) { return (i * 60) + 30; })
@@ -112,13 +112,13 @@ KarmaForge.data3.redraw = function () {
 };
 
 KarmaForge.data3.sortByName = function () {
-  this.current_set.sort(function(a,b) { return a.city > b.city ? 1 : -1; });
-  this.redraw();
+  var sort = function (a,b) { return a.city > b.city ? 1 : -1; };
+  this.redraw(sort);
 };
 
 KarmaForge.data3.sortByPoints = function () {
-  this.current_set.sort(function(a,b) { return a.total_points < b.total_points ? 1 : -1; });
-  this.redraw();
+  var sort = function (a,b) { return a.total_points < b.total_points ? 1 : -1; };
+  this.redraw(sort);
 };
 
 KarmaForge.data3.init = function () {
