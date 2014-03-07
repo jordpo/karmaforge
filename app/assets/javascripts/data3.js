@@ -109,6 +109,9 @@ KarmaForge.data3.redraw = function (func) {
       .attr("y", function (d, i) { return (i * 60) + 30; })
       .attr("x", 100)
       .text(function (d) { return d.city + ", " + d.state });
+
+  // Save the sorted data to the object
+  this.current_set = this.current_set.sort(func);
 };
 
 KarmaForge.data3.sortByName = function () {
