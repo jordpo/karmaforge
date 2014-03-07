@@ -40,6 +40,8 @@ KarmaForge.saveLocation = function (event) {
 KarmaForge.createItem = function (event) {
     var $item = $('#item_name');
 
+    // make sure there is no current error being displayed
+    $('.notice-alert').empty();
     // blank field validation
     if ( $item.val() === '' ) {
       $('.notice-alert').append($('<p>',
@@ -54,9 +56,6 @@ KarmaForge.createItem = function (event) {
   this.currentItem = new KarmaForge.Item($item.val().toUpperCase().trim());
 
   event.preventDefault();
-
-  // make sure there is no current error being displayed
-  $('.notice-alert').empty();
 
   $('#user-instructions').hide();
   $('#item-search').prepend($('<p>', {html: $item.val().toUpperCase().trim(), id: 'item_el' }));
