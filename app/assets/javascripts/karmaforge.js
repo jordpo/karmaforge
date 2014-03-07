@@ -153,11 +153,6 @@ KarmaForge.init = function () {
     $('.notice-alert').html('');
   });
 
-  $('#hide-oldest-button').click(function(){
-           $('div:lt(3)').hide();
-       });
-
-
   $('#how-does-it-work').click(function(){
     $('#instructions').toggle();
   });
