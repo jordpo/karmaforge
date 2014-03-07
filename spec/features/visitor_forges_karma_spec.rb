@@ -19,7 +19,7 @@ feature 'Forge Karma' do
     expect(page).to have_content "What do you need to get rid of?"
 
     fill_in 'Enter item description', with: 'Nintendo 3ds'
-    click_button 'eBay'
+    click_button "What's it worth"
     expect(page).to have_content "NINTENDO 3DS"
     click_button 'Show results'
     expect(page).to have_content "Here's the average price of the last 10 items sold on ebay that match your keywords."
