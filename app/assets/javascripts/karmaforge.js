@@ -84,11 +84,8 @@ KarmaForge.saveItem = function (event) {
     return false;
   }
 
-
-  // Get the avg price and avg bid - might be a time delay depending on connection
-  while (item.price === undefined ) {
-    item.ebayPrice();
-  }
+  // Get the avg price and avg bid
+  item.ebayPrice();
 
   $.ajax({
     type: 'POST',

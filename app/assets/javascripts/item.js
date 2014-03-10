@@ -2,7 +2,7 @@ var KarmaForge = KarmaForge || {};
 
 KarmaForge.Item = function (name) {
   this.name = name;
-  KarmaForge.ebay.call(this.name, 10);
+  KarmaForge.ebay.request(this.name, 10);
 };
 
 KarmaForge.Item.prototype.ebayPrice = function () {
