@@ -134,7 +134,8 @@ KarmaForge.saveTransaction = function (event) {
       // Refresh location data for chart
       $('#global-stats').attr('data', data.location_data);
       KarmaForge.data3.getLocationData();
-      KarmaForge.data3.redraw();
+      debugger
+      KarmaForge.data3.sortByPoints.apply(KarmaForge.data3);
   });
 }
 
