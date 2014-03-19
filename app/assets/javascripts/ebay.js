@@ -23,24 +23,41 @@ KarmaForge.ebay.request = function (item, count) {
 
 KarmaForge.ebay.result = [];
 
-KarmaForge.ebay.results = function(data) {
+KarmaForge.ebay.results = function (data) {
   // check to see if ebay return an error object
-  if ( data.findCompletedItemsResponse[0].errorMessage != undefined ) {
+  if ( data.findCompletedItemsResponse[0].errorMessage !== undefined ) {
     this.result[2] = 'error';
     return false;
   }
 
   var items = data.findCompletedItemsResponse[0].searchResult[0].item || [],
-    bid_total = 0,
+    results = KarmaForge.vetResults(items),
+    price_total = results[0],
+    bid_total = results[1];
+
+  // Remove script tag
+  $('#ebay-script').remove();
+
+  // Average sums
+  this.result[0] = parseFloat((price_total / length).toFixed(2));
+  this.result[1] = parseInt(bid_total / length);
+
+  // check for an error
+  if ( isNaN(this.result[0]) || isNaN(this.result[1])
+      || this.result[0] === undefined || this.result[1] === undefined ) {
+    this.result[2] = "error";
+  }
+};
+
+
+KarmaForge.vetResults = function (items) {
+  var bid_total = 0,
     bid,
     price_total = 0,
     price,
     length = items.length,
     i = 0,
     result = [];
-
-  // Remove script tag
-  $('#ebay-script').remove();
 
   // Iterate through items to get sums
   for (; i < length; i++ ) {
@@ -58,20 +75,11 @@ KarmaForge.ebay.results = function(data) {
       price = 0;
     }
     price_total = price + price_total;
-
   }
-  // Average sums
-  this.result[0] = parseFloat((price_total / length).toFixed(2));
-  this.result[1] = parseInt(bid_total / length);
 
-
-  console.log(items[0] === undefined );
-  // check for an error
-  if ( isNaN(this.result[0]) || isNaN(this.result[1])
-      || this.result[0] === undefined || this.result[1] === undefined ) {
-    this.result[2] = "error";
-  }
-}
+  // return bid and price totals
+  return [price_total, bid_total];
+};
 
 KarmaForge.ebay.filterItems = [
   {"name":"HideDuplicateItems",
