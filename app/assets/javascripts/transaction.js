@@ -13,7 +13,8 @@ KarmaForge.Transaction.prototype.render = function(currentItem, currentLocation)
   transactionDiv.prepend($('<p>', {html: "You forged " + this.karma_point + " points for " + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + ". " + '<br>' + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + " has " + KarmaForge.currentLocation.total_points + " points."}));
 }
 
-KarmaForge.Transaction.prototype.calcKarma = function () {
+//changed method name from calcKarma to calculateKarmaPoints to 'make method call simpler'
+KarmaForge.Transaction.prototype.calculateKarmaPoints = function () {
   var interest = KarmaForge.currentItem.interestLevelNumber(),
     points;
   points = parseInt(KarmaForge.currentItem.price + ( Math.random() * interest ));
