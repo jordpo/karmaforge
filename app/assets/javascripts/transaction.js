@@ -3,7 +3,7 @@ var KarmaForge = KarmaForge || {}
 KarmaForge.Transaction = function(new_item_id, new_location_id) {
   this.item_id = new_item_id;
   this.location_id =  new_location_id;
-  this.karma_point = this.calcKarma();
+  this.karma_point = this.calculateKarmaPoints();
 }
 
 KarmaForge.Transaction.prototype.render = function(currentItem, currentLocation) {
@@ -12,8 +12,8 @@ KarmaForge.Transaction.prototype.render = function(currentItem, currentLocation)
   transactionDiv = $('#transaction-display');
   transactionDiv.prepend($('<p>', {html: "You forged " + this.karma_point + " points for " + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + ". " + '<br>' + KarmaForge.currentLocation.city + ", " + KarmaForge.currentLocation.state + " has " + KarmaForge.currentLocation.total_points + " points."}));
 }
+//Refactored method name-- changed method name from calcKarma to calculateKarmaPoints to 'make method call simpler'
 
-//changed method name from calcKarma to calculateKarmaPoints to 'make method call simpler'
 KarmaForge.Transaction.prototype.calculateKarmaPoints = function () {
   var interest = KarmaForge.currentItem.interestLevelNumber(),
     points;
