@@ -84,7 +84,6 @@ KarmaForge.saveItem = function (event) {
     return false;
   }
 
-
   // Get the avg price and avg bid
   item.ebayPrice();
 
@@ -134,7 +133,7 @@ KarmaForge.saveTransaction = function (event) {
       // Refresh location data for chart
       $('#global-stats').attr('data', data.location_data);
       KarmaForge.data3.getLocationData();
-      KarmaForge.data3.redraw();
+      KarmaForge.data3.sortByPoints.apply(KarmaForge.data3);
     });
 }
 

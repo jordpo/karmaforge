@@ -109,19 +109,22 @@ KarmaForge.data3.draw = function () {
     .attr("y", function (d, i) { return (i * 60) + 30; })
     .attr("x", 100)
     .text(function (d) { return d.city + ", " + d.state });
-  };
 
-  KarmaForge.data3.sortByName = function () {
-    var sort = function (a,b) { return a.city > b.city ? 1 : -1; };
-    this.redraw(sort);
-  };
+  // Save the sorted data to the object
+  this.current_set = this.current_set.sort(func);
+};
 
-  KarmaForge.data3.sortByPoints = function () {
-    var sort = function (a,b) { return a.total_points < b.total_points ? 1 : -1; };
-    this.redraw(sort);
-  };
+KarmaForge.data3.sortByName = function () {
+  var sort = function (a,b) { return a.city > b.city ? 1 : -1; };
+  this.redraw(sort);
+};
 
-  KarmaForge.data3.init = function () {
-    KarmaForge.data3.getLocationData();
-    KarmaForge.data3.draw();
-  };
+KarmaForge.data3.sortByPoints = function () {
+  var sort = function (a,b) { return a.total_points < b.total_points ? 1 : -1; };
+  this.redraw(sort);
+};
+
+KarmaForge.data3.init = function () {
+  KarmaForge.data3.getLocationData();
+  KarmaForge.data3.draw();
+};

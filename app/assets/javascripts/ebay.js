@@ -2,7 +2,7 @@ var KarmaForge = KarmaForge || {};
 
 KarmaForge.ebay = {};
 
-KarmaForge.ebay.call = function (item, count) {
+KarmaForge.ebay.request = function (item, count) {
   var url, $scriptEl;
   url = "http://svcs.ebay.com/services/search/FindingService/v1";
   url += "?OPERATION-NAME=findCompletedItems";
