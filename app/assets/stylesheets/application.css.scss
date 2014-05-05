@@ -12,25 +12,25 @@
  *= require_tree .
  */
 
-#ebay-results {
+ #ebay-results {
   font-family: 'Marvel';
   font-size: .75em;
 }
 
-
 #donation-list li {
-   font-family: 'Marvel';
-   font-size: .35em;
-   text-align: left;
-   list-style: none;
- }
- .notice-alert {
+ font-family: 'Marvel';
+ font-size: .35em;
+ text-align: left;
+ list-style: none;
+}
+.notice-alert {
   font-family: marvel;
   font-size: 1.4em;
- }
+}
 
 #instructions {
   display: none;
+  text-align: center;
   font-family: 'Marvel';
   font-size: 1.5em;
 }
@@ -97,9 +97,11 @@
 .notice {
   color: green;
 }
+
 .alert {
   color: red;
 }
+
 #global-stats {
   margin-top: 60px;
 }
@@ -136,21 +138,17 @@
   font-weight: bolder;
 }
 
-#intro {
+#buttons {
   text-align: center;
   vertical-align: center;
-  font-family: 'Marvel';
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 #enter {
   background-color: tomato;
   font-family: 'Shadows Into Light';
-  margin-top: 25px;
-  transform:scale(2.0,2.0);
-  -ms-transform:scale(2.0,2.0); /* IE 9 */
-  -moz-transform:scale(2.0,2.0); /* Firefox */
-  -webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
-  -o-transform:scale(2.0,2.0);
+  font-size: 1.8em;
 }
 
 #error-message {
@@ -266,14 +264,22 @@ form button {
   #title {
     font-size: 3em;
   }
+
   #tagline {
     font-size: 2em;
   }
+
   #global-stats svg,  {
     width: 100%;
   }
+
   #enter {
     margin: 50px 0;
+  }
+
+  #buttons {
+    margin-top: none;
+    margin-bottom: none;
   }
 
   #how-does-it-work, .next-button {
@@ -281,6 +287,7 @@ form button {
     height: 80px;
     margin: 10px 0;
   }
+
   input {
     display: block;
     width: 100%;
@@ -292,20 +299,25 @@ form button {
     margin: 5px 0;
     height: 50px;
   }
+
   #sort_points {
     margin-bottom: 25px;
   }
+
   .login-nav a {
     display: block;
     margin-left: 100px;
   }
+
   .login-nav span {
     margin-left: 0;
   }
+
   #forge-again {
     width: 100%;
     height: 80px;
   }
+
   button.reset {
     width: 100%;
     margin-top: 20px;

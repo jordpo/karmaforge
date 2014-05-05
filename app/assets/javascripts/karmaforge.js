@@ -6,8 +6,8 @@ var KarmaForge = KarmaForge || {};
 
 KarmaForge.saveLocation = function (event) {
   var $city = $("#location_city"),
-    $state = $("#location_state"),
-    location;
+  $state = $("#location_state"),
+  location;
   event.preventDefault();
 
   this.currentLocation = new this.Location($city.val().toUpperCase().trim(), $state.val().toUpperCase().trim());
@@ -15,52 +15,52 @@ KarmaForge.saveLocation = function (event) {
 
   if($city.val() === "" || $state.val() === "") {
     $('#error-message').prepend("Please enter your city and state.")
-    } else {
+  } else {
 
-      $('#error-message').hide();
+    $('#error-message').hide();
 
-      $.ajax({
-        type: "POST",
-        url: "/locations",
-        data: {location: {city: location.city, state: location.state}},
-        dataType: 'json'
-      }).done(function (data) {
-        location.id = data.id;
-        $('#location').hide();
-        $('#item-search').show();
-        $('#item_name').parent().show();
-        $('#item_el').remove();
-      });
-    };
-  }
+    $.ajax({
+      type: "POST",
+      url: "/locations",
+      data: {location: {city: location.city, state: location.state}},
+      dataType: 'json'
+    }).done(function (data) {
+      location.id = data.id;
+      $('#location').hide();
+      $('#item-search').show();
+      $('#item_name').parent().show();
+      $('#item_el').remove();
+    });
+  };
+}
 
 
 ///// Begin: Item Event Handlers //////
 // Set item to currentItem and use eBay script to get price and bid
 KarmaForge.createItem = function (event) {
-    var $item = $('#item_name');
+  var $item = $('#item_name');
 
     // make sure there is no current error being displayed
     $('.notice-alert').empty();
     // blank field validation
     if ( $item.val() === '' ) {
       $('.notice-alert').append($('<p>',
-          {
-            html: 'Please describe your item.',
-            class: 'alert well'
-          }
-        ));
+      {
+        html: 'Please describe your item.',
+        class: 'alert well'
+      }
+      ));
       return false;
     }
 
-  this.currentItem = new KarmaForge.Item($item.val().toUpperCase().trim());
+    this.currentItem = new KarmaForge.Item($item.val().toUpperCase().trim());
 
-  event.preventDefault();
+    event.preventDefault();
 
-  $('#user-instructions').hide();
-  $('#item-search').prepend($('<p>', {html: $item.val().toUpperCase().trim(), id: 'item_el' }));
-  $('#item_save_button').show();
-  $('#ebay_el').remove();
+    $('#user-instructions').hide();
+    $('#item-search').prepend($('<p>', {html: $item.val().toUpperCase().trim(), id: 'item_el' }));
+    $('#item_save_button').show();
+    $('#ebay_el').remove();
 
   // Remove input val and hide form
   $item.val('');
@@ -70,14 +70,14 @@ KarmaForge.createItem = function (event) {
 // Save item in DB and add item.id to JS object
 KarmaForge.saveItem = function (event) {
   var item = this.currentItem,
-    msg = "Oops. Please try again.";
+  msg = "Oops. Please try again.";
   event.preventDefault();
 
   // if error display message and revert back to form
   if ( KarmaForge.ebay.result[2] === "error" ) {
-     $('.notice-alert').append($('<p>', { html: msg, class: "alert well" }))
-    $('#item_name').parent().show();
-    $('#item_el').remove();
+   $('.notice-alert').append($('<p>', { html: msg, class: "alert well" }))
+   $('#item_name').parent().show();
+   $('#item_el').remove();
 
     // reset error and return false
     KarmaForge.ebay.result[2] = undefined;
@@ -95,16 +95,16 @@ KarmaForge.saveItem = function (event) {
       name: item.name,
       average_price: item.price,
       average_bid: item.bid
-      }
     }
-  }).done(function (data) {
-    item.id = data.id;
-    $('#item-search').hide();
-    $('#item_save_button').hide();
-    $('#ebay-display').show();
-    $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel(), id: 'ebay_el' }));
-    $('#transaction-display p').remove();
-  });
+  }
+}).done(function (data) {
+  item.id = data.id;
+  $('#item-search').hide();
+  $('#item_save_button').hide();
+  $('#ebay-display').show();
+  $('#ebay-display').prepend($('<p>', {html: "Price: $" + item.price + " - Interest Level: " + item.interestLevel(), id: 'ebay_el' }));
+  $('#transaction-display p').remove();
+});
 }
 
 ///// Begin: Transaction Event Handlers //////
@@ -118,24 +118,24 @@ KarmaForge.saveTransaction = function (event) {
       item_id: this.currentTransaction.item_id,
       location_id: this.currentTransaction.location_id,
       karma_point: this.currentTransaction.karma_point
-      }
     }
-  }).done(function (data){
-      $('#ebay-display').hide();
-      $('#transaction-display').show();
-      $('#again').show()
-      KarmaForge.currentLocation.total_points = data.location.total_points;
-      if (data.user) {
-        $('#user_pts').html(data.user.total_points);
-      }
-      KarmaForge.currentTransaction.render();
-      $('#current-item').html(KarmaForge.currentItem.name);
+  }
+}).done(function (data){
+  $('#ebay-display').hide();
+  $('#transaction-display').show();
+  $('#again').show()
+  KarmaForge.currentLocation.total_points = data.location.total_points;
+  if (data.user) {
+    $('#user_pts').html(data.user.total_points);
+  }
+  KarmaForge.currentTransaction.render();
+  $('#current-item').html(KarmaForge.currentItem.name);
 
       // Refresh location data for chart
       $('#global-stats').attr('data', data.location_data);
       KarmaForge.data3.getLocationData();
       KarmaForge.data3.redraw();
-  });
+    });
 }
 
 //// Reset button for reforge and reset in middle of form fillout

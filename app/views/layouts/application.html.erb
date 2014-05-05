@@ -20,32 +20,32 @@
          <!-- User NAV -->
          <span class="login-nav">
           <% if user_signed_in? %>
-            <span>Signed in as <%= current_user.email %> with <span id="user_pts_container">Total Karma Points:
-                <span id="user_pts"><%= current_user.total_points %></span></span>
-            </span>
-            <span><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></span>
+          <span>Signed in as <%= current_user.email %> with <span id="user_pts_container">Total Karma Points:
+            <span id="user_pts"><%= current_user.total_points %></span></span>
+          </span>
+          <span><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></span>
           <% else %>
-            <span><%=  link_to 'Sign In', new_user_session_path %></span>
-            <span><%= link_to 'Facebook Sign In', user_omniauth_authorize_path(:facebook) %></span>
+          <span><%=  link_to 'Sign In', new_user_session_path %></span>
+          <span><%= link_to 'Facebook Sign In', user_omniauth_authorize_path(:facebook) %></span>
           <% end %>
-         </span>
-        </div>
+        </span>
       </div>
     </div>
-    <div class="jumbotron">
-      <h1 id="title">KarmaForge</h1>
-        <h3 id="tagline">Give your old things a new life and boost your community's <span id="karma"> Karma</span>!</h3>
-    </div>
-    <div class="notice-alert">
-      <!-- Notice and Alerts -->
-      <% if notice.present? %>
-        <p class="notice well"><%= notice %></p>
-      <% end %>
-      <% if alert.present?%>
-        <p class="alert well"><%= alert %></p>
-     <% end%>
-    </div>
-    <%= yield %>
   </div>
+  <div class="jumbotron">
+    <h1 id="title">KarmaForge</h1>
+    <h3 id="tagline">Give your old things a new life and boost your community's <span id="karma"> Karma</span>!</h3>
+  </div>
+  <div class="notice-alert">
+    <!-- Notice and Alerts -->
+    <% if notice.present? %>
+    <p class="notice well"><%= notice %></p>
+    <% end %>
+    <% if alert.present?%>
+    <p class="alert well"><%= alert %></p>
+    <% end%>
+  </div>
+  <%= yield %>
+</div>
 </body>
 </html>

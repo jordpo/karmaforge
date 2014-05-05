@@ -15,7 +15,7 @@ KarmaForge.Transaction.prototype.render = function(currentItem, currentLocation)
 
 KarmaForge.Transaction.prototype.calcKarma = function () {
   var interest = KarmaForge.currentItem.interestLevelNumber(),
-    points;
+  points;
   points = parseInt(KarmaForge.currentItem.price + ( Math.random() * interest ));
   return points;
 };
